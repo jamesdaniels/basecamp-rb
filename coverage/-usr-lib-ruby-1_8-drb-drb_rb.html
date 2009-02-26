@@ -1,0 +1,2373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'><head><title>/usr/lib/ruby/1.8/drb/drb.rb - C0 code coverage information</title>
+    <style type='text/css'>body { background-color: rgb(240, 240, 245); }</style>
+    <style type='text/css'>span.cross-ref-title {
+ font-size: 140%;
+}
+span.cross-ref a {
+ text-decoration: none;
+}
+span.cross-ref {
+ background-color:#f3f7fa;
+ border: 1px dashed #333;
+ margin: 1em;
+ padding: 0.5em;
+ overflow: hidden;
+}
+a.crossref-toggle {
+ text-decoration: none;
+}
+span.marked0 {
+ background-color: rgb(185, 210, 200);
+ display: block;
+}
+span.marked1 {
+ background-color: rgb(190, 215, 205);
+ display: block;
+}
+span.inferred0 {
+ background-color: rgb(175, 200, 200);
+ display: block;
+}
+span.inferred1 {
+ background-color: rgb(180, 205, 205);
+ display: block;
+}
+span.uncovered0 {
+ background-color: rgb(225, 110, 110);
+ display: block;
+}
+span.uncovered1 {
+ background-color: rgb(235, 120, 120);
+ display: block;
+}
+span.overview {
+ border-bottom: 8px solid black;
+}
+div.overview {
+ border-bottom: 8px solid black;
+}
+body {
+ font-family: verdana, arial, helvetica;
+}
+div.footer {
+ font-size: 68%;
+ margin-top: 1.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+ margin-bottom: 0.5em;
+}
+h5 {
+ margin-top: 0.5em;
+}
+.hidden {
+ display: none;
+}
+div.separator {
+ height: 10px;
+}
+/* Commented out for better readability, esp. on IE */
+/*
+table tr td, table tr th {
+ font-size: 68%;
+}
+td.value table tr td {
+ font-size: 11px;
+}
+*/
+table.percent_graph {
+ height: 12px;
+ border: #808080 1px solid;
+ empty-cells: show;
+}
+table.percent_graph td.covered {
+ height: 10px;
+ background: #00f000;
+}
+table.percent_graph td.uncovered {
+ height: 10px;
+ background: #e00000;
+}
+table.percent_graph td.NA {
+ height: 10px;
+ background: #eaeaea;
+}
+table.report {
+ border-collapse: collapse;
+ width: 100%;
+}
+table.report td.heading {
+ background: #dcecff;
+ border: #d0d0d0 1px solid;
+ font-weight: bold;
+ text-align: center;
+}
+table.report td.heading:hover {
+ background: #c0ffc0;
+}
+table.report td.text {
+ border: #d0d0d0 1px solid;
+}
+table.report td.value,
+table.report td.lines_total,
+table.report td.lines_code {
+ text-align: right;
+ border: #d0d0d0 1px solid;
+}
+table.report tr.light {
+ background-color: rgb(240, 240, 245);
+}
+table.report tr.dark {
+ background-color: rgb(230, 230, 235);
+}
+</style>
+    <script type='text/javascript'>
+// <![CDATA[
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make cross-references hidden by default
+  document.writeln( "<style type=\"text/css\">span.cross-ref { display: none }</style>" )
+  // ]]>
+</script>
+    <style type='text/css'>span.run0 {
+  background-color: rgb(178, 204, 255);
+  display: block;
+}
+span.run1 {
+  background-color: rgb(178, 206, 255);
+  display: block;
+}
+span.run2 {
+  background-color: rgb(178, 209, 255);
+  display: block;
+}
+span.run3 {
+  background-color: rgb(178, 211, 255);
+  display: block;
+}
+span.run4 {
+  background-color: rgb(178, 214, 255);
+  display: block;
+}
+span.run5 {
+  background-color: rgb(178, 218, 255);
+  display: block;
+}
+span.run6 {
+  background-color: rgb(178, 220, 255);
+  display: block;
+}
+span.run7 {
+  background-color: rgb(178, 223, 255);
+  display: block;
+}
+span.run8 {
+  background-color: rgb(178, 225, 255);
+  display: block;
+}
+span.run9 {
+  background-color: rgb(178, 228, 255);
+  display: block;
+}
+span.run10 {
+  background-color: rgb(178, 232, 255);
+  display: block;
+}
+span.run11 {
+  background-color: rgb(178, 234, 255);
+  display: block;
+}
+span.run12 {
+  background-color: rgb(178, 237, 255);
+  display: block;
+}
+span.run13 {
+  background-color: rgb(178, 239, 255);
+  display: block;
+}
+span.run14 {
+  background-color: rgb(178, 242, 255);
+  display: block;
+}
+span.run15 {
+  background-color: rgb(178, 246, 255);
+  display: block;
+}
+span.run16 {
+  background-color: rgb(178, 248, 255);
+  display: block;
+}
+span.run17 {
+  background-color: rgb(178, 251, 255);
+  display: block;
+}
+span.run18 {
+  background-color: rgb(178, 253, 255);
+  display: block;
+}
+span.run19 {
+  background-color: rgb(178, 255, 253);
+  display: block;
+}
+span.run20 {
+  background-color: rgb(178, 255, 249);
+  display: block;
+}
+span.run21 {
+  background-color: rgb(178, 255, 247);
+  display: block;
+}
+span.run22 {
+  background-color: rgb(178, 255, 244);
+  display: block;
+}
+span.run23 {
+  background-color: rgb(178, 255, 242);
+  display: block;
+}
+span.run24 {
+  background-color: rgb(178, 255, 239);
+  display: block;
+}
+span.run25 {
+  background-color: rgb(178, 255, 235);
+  display: block;
+}
+span.run26 {
+  background-color: rgb(178, 255, 233);
+  display: block;
+}
+span.run27 {
+  background-color: rgb(178, 255, 230);
+  display: block;
+}
+span.run28 {
+  background-color: rgb(178, 255, 228);
+  display: block;
+}
+span.run29 {
+  background-color: rgb(178, 255, 225);
+  display: block;
+}
+span.run30 {
+  background-color: rgb(178, 255, 221);
+  display: block;
+}
+span.run31 {
+  background-color: rgb(178, 255, 219);
+  display: block;
+}
+span.run32 {
+  background-color: rgb(178, 255, 216);
+  display: block;
+}
+span.run33 {
+  background-color: rgb(178, 255, 214);
+  display: block;
+}
+span.run34 {
+  background-color: rgb(178, 255, 211);
+  display: block;
+}
+span.run35 {
+  background-color: rgb(178, 255, 207);
+  display: block;
+}
+span.run36 {
+  background-color: rgb(178, 255, 205);
+  display: block;
+}
+span.run37 {
+  background-color: rgb(178, 255, 202);
+  display: block;
+}
+span.run38 {
+  background-color: rgb(178, 255, 200);
+  display: block;
+}
+span.run39 {
+  background-color: rgb(178, 255, 197);
+  display: block;
+}
+span.run40 {
+  background-color: rgb(178, 255, 193);
+  display: block;
+}
+span.run41 {
+  background-color: rgb(178, 255, 191);
+  display: block;
+}
+span.run42 {
+  background-color: rgb(178, 255, 188);
+  display: block;
+}
+span.run43 {
+  background-color: rgb(178, 255, 186);
+  display: block;
+}
+span.run44 {
+  background-color: rgb(178, 255, 183);
+  display: block;
+}
+span.run45 {
+  background-color: rgb(178, 255, 179);
+  display: block;
+}
+span.run46 {
+  background-color: rgb(179, 255, 178);
+  display: block;
+}
+span.run47 {
+  background-color: rgb(182, 255, 178);
+  display: block;
+}
+span.run48 {
+  background-color: rgb(184, 255, 178);
+  display: block;
+}
+span.run49 {
+  background-color: rgb(187, 255, 178);
+  display: block;
+}
+span.run50 {
+  background-color: rgb(191, 255, 178);
+  display: block;
+}
+span.run51 {
+  background-color: rgb(193, 255, 178);
+  display: block;
+}
+span.run52 {
+  background-color: rgb(196, 255, 178);
+  display: block;
+}
+span.run53 {
+  background-color: rgb(198, 255, 178);
+  display: block;
+}
+span.run54 {
+  background-color: rgb(201, 255, 178);
+  display: block;
+}
+span.run55 {
+  background-color: rgb(205, 255, 178);
+  display: block;
+}
+span.run56 {
+  background-color: rgb(207, 255, 178);
+  display: block;
+}
+span.run57 {
+  background-color: rgb(210, 255, 178);
+  display: block;
+}
+span.run58 {
+  background-color: rgb(212, 255, 178);
+  display: block;
+}
+span.run59 {
+  background-color: rgb(215, 255, 178);
+  display: block;
+}
+span.run60 {
+  background-color: rgb(219, 255, 178);
+  display: block;
+}
+span.run61 {
+  background-color: rgb(221, 255, 178);
+  display: block;
+}
+span.run62 {
+  background-color: rgb(224, 255, 178);
+  display: block;
+}
+span.run63 {
+  background-color: rgb(226, 255, 178);
+  display: block;
+}
+span.run64 {
+  background-color: rgb(229, 255, 178);
+  display: block;
+}
+span.run65 {
+  background-color: rgb(233, 255, 178);
+  display: block;
+}
+span.run66 {
+  background-color: rgb(235, 255, 178);
+  display: block;
+}
+span.run67 {
+  background-color: rgb(238, 255, 178);
+  display: block;
+}
+span.run68 {
+  background-color: rgb(240, 255, 178);
+  display: block;
+}
+span.run69 {
+  background-color: rgb(243, 255, 178);
+  display: block;
+}
+span.run70 {
+  background-color: rgb(247, 255, 178);
+  display: block;
+}
+span.run71 {
+  background-color: rgb(249, 255, 178);
+  display: block;
+}
+span.run72 {
+  background-color: rgb(252, 255, 178);
+  display: block;
+}
+span.run73 {
+  background-color: rgb(255, 255, 178);
+  display: block;
+}
+span.run74 {
+  background-color: rgb(255, 252, 178);
+  display: block;
+}
+span.run75 {
+  background-color: rgb(255, 248, 178);
+  display: block;
+}
+span.run76 {
+  background-color: rgb(255, 246, 178);
+  display: block;
+}
+span.run77 {
+  background-color: rgb(255, 243, 178);
+  display: block;
+}
+span.run78 {
+  background-color: rgb(255, 240, 178);
+  display: block;
+}
+span.run79 {
+  background-color: rgb(255, 238, 178);
+  display: block;
+}
+span.run80 {
+  background-color: rgb(255, 234, 178);
+  display: block;
+}
+span.run81 {
+  background-color: rgb(255, 232, 178);
+  display: block;
+}
+span.run82 {
+  background-color: rgb(255, 229, 178);
+  display: block;
+}
+span.run83 {
+  background-color: rgb(255, 226, 178);
+  display: block;
+}
+span.run84 {
+  background-color: rgb(255, 224, 178);
+  display: block;
+}
+span.run85 {
+  background-color: rgb(255, 220, 178);
+  display: block;
+}
+span.run86 {
+  background-color: rgb(255, 218, 178);
+  display: block;
+}
+span.run87 {
+  background-color: rgb(255, 215, 178);
+  display: block;
+}
+span.run88 {
+  background-color: rgb(255, 212, 178);
+  display: block;
+}
+span.run89 {
+  background-color: rgb(255, 210, 178);
+  display: block;
+}
+span.run90 {
+  background-color: rgb(255, 206, 178);
+  display: block;
+}
+span.run91 {
+  background-color: rgb(255, 204, 178);
+  display: block;
+}
+span.run92 {
+  background-color: rgb(255, 201, 178);
+  display: block;
+}
+span.run93 {
+  background-color: rgb(255, 198, 178);
+  display: block;
+}
+span.run94 {
+  background-color: rgb(255, 196, 178);
+  display: block;
+}
+span.run95 {
+  background-color: rgb(255, 192, 178);
+  display: block;
+}
+span.run96 {
+  background-color: rgb(255, 189, 178);
+  display: block;
+}
+span.run97 {
+  background-color: rgb(255, 187, 178);
+  display: block;
+}
+span.run98 {
+  background-color: rgb(255, 184, 178);
+  display: block;
+}
+span.run99 {
+  background-color: rgb(255, 182, 178);
+  display: block;
+}
+span.run100 {
+  background-color: rgb(255, 178, 178);
+  display: block;
+}
+</style>
+    </head>
+  <body><h3>C0 code coverage information</h3>
+    <p>Generated on Thu Feb 26 19:12:32 +0300 2009 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
+      </p>
+    <hr/>
+    <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
+</span><span class='marked1'>and this: this line is also marked as covered.
+</span><span class='inferred0'>Lines considered as run by rcov, but not reported by Ruby, look like this,
+</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).
+</span><span class='uncovered0'>Finally, here&apos;s a line marked as not executed.
+</span></pre>                       
+<table class='report'><thead><tr><td class='heading'>Name</td>
+      <td class='heading'>Total lines</td>
+      <td class='heading'>Lines of code</td>
+      <td class='heading'>Total coverage</td>
+      <td class='heading'>Code coverage</td>
+      </tr>
+    </thead>
+  <tbody><tr class='light'><td><a href='-usr-lib-ruby-1_8-drb-drb_rb.html'>/usr/lib/ruby/1.8/drb/drb.rb</a>
+        </td>
+      <td class='lines_total'><tt>1763</tt>
+        </td>
+      <td class='lines_code'><tt>861</tt>
+        </td>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_total'>61.9%</tt>
+              &nbsp;</td>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='62'/>
+                  <td class='uncovered' width='38'/>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_code'>24.0%</tt>
+              &nbsp;</td>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='24'/>
+                  <td class='uncovered' width='76'/>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<pre><span class="inferred1"><a name="line1"></a>   1 #
+</span><span class="inferred0"><a name="line2"></a>   2 # = drb/drb.rb
+</span><span class="inferred1"><a name="line3"></a>   3 #
+</span><span class="inferred0"><a name="line4"></a>   4 # Distributed Ruby: _dRuby_ version 2.0.4
+</span><span class="inferred1"><a name="line5"></a>   5 #
+</span><span class="inferred0"><a name="line6"></a>   6 # Copyright (c) 1999-2003 Masatoshi SEKI.  You can redistribute it and/or
+</span><span class="inferred1"><a name="line7"></a>   7 # modify it under the same terms as Ruby.
+</span><span class="inferred0"><a name="line8"></a>   8 #
+</span><span class="inferred1"><a name="line9"></a>   9 # Author:: Masatoshi SEKI
+</span><span class="inferred0"><a name="line10"></a>  10 #
+</span><span class="inferred1"><a name="line11"></a>  11 # Documentation:: William Webber (william@williamwebber.com)
+</span><span class="inferred0"><a name="line12"></a>  12 #
+</span><span class="inferred1"><a name="line13"></a>  13 # == Overview
+</span><span class="inferred0"><a name="line14"></a>  14 #
+</span><span class="inferred1"><a name="line15"></a>  15 # dRuby is a distributed object system for Ruby.  It allows an object in one
+</span><span class="inferred0"><a name="line16"></a>  16 # Ruby process to invoke methods on an object in another Ruby process on the
+</span><span class="inferred1"><a name="line17"></a>  17 # same or a different machine.
+</span><span class="inferred0"><a name="line18"></a>  18 #
+</span><span class="inferred1"><a name="line19"></a>  19 # The Ruby standard library contains the core classes of the dRuby package.
+</span><span class="inferred0"><a name="line20"></a>  20 # However, the full package also includes access control lists and the
+</span><span class="inferred1"><a name="line21"></a>  21 # Rinda tuple-space distributed task management system, as well as a 
+</span><span class="inferred0"><a name="line22"></a>  22 # large number of samples.  The full dRuby package can be downloaded from
+</span><span class="inferred1"><a name="line23"></a>  23 # the dRuby home page (see *References*).
+</span><span class="inferred0"><a name="line24"></a>  24 #
+</span><span class="inferred1"><a name="line25"></a>  25 # For an introduction and examples of usage see the documentation to the
+</span><span class="inferred0"><a name="line26"></a>  26 # DRb module.
+</span><span class="inferred1"><a name="line27"></a>  27 #
+</span><span class="inferred0"><a name="line28"></a>  28 # == References
+</span><span class="inferred1"><a name="line29"></a>  29 #
+</span><span class="inferred0"><a name="line30"></a>  30 # [http://www2a.biglobe.ne.jp/~seki/ruby/druby.html]
+</span><span class="inferred1"><a name="line31"></a>  31 #    The dRuby home page, in Japanese.  Contains the full dRuby package
+</span><span class="inferred0"><a name="line32"></a>  32 #    and links to other Japanese-language sources.
+</span><span class="inferred1"><a name="line33"></a>  33 #
+</span><span class="inferred0"><a name="line34"></a>  34 # [http://www2a.biglobe.ne.jp/~seki/ruby/druby.en.html]
+</span><span class="inferred1"><a name="line35"></a>  35 #    The English version of the dRuby home page.
+</span><span class="inferred0"><a name="line36"></a>  36 #
+</span><span class="inferred1"><a name="line37"></a>  37 # [http://www.chadfowler.com/ruby/drb.html]
+</span><span class="inferred0"><a name="line38"></a>  38 #    A quick tutorial introduction to using dRuby by Chad Fowler.
+</span><span class="inferred1"><a name="line39"></a>  39 #
+</span><span class="inferred0"><a name="line40"></a>  40 # [http://www.linux-mag.com/2002-09/ruby_05.html]
+</span><span class="inferred1"><a name="line41"></a>  41 #   A tutorial introduction to dRuby in Linux Magazine by Dave Thomas.
+</span><span class="inferred0"><a name="line42"></a>  42 #   Includes a discussion of Rinda.
+</span><span class="inferred1"><a name="line43"></a>  43 #
+</span><span class="inferred0"><a name="line44"></a>  44 # [http://www.eng.cse.dmu.ac.uk/~hgs/ruby/dRuby/]
+</span><span class="inferred1"><a name="line45"></a>  45 #   Links to English-language Ruby material collected by Hugh Sasse.
+</span><span class="inferred0"><a name="line46"></a>  46 #
+</span><span class="inferred1"><a name="line47"></a>  47 # [http://www.rubycentral.com/book/ospace.html]
+</span><span class="inferred0"><a name="line48"></a>  48 #   The chapter from *Programming* *Ruby* by Dave Thomas and Andy Hunt
+</span><span class="inferred1"><a name="line49"></a>  49 #   which discusses dRuby.
+</span><span class="inferred0"><a name="line50"></a>  50 #
+</span><span class="inferred1"><a name="line51"></a>  51 # [http://www.clio.ne.jp/home/web-i31s/Flotuard/Ruby/PRC2K_seki/dRuby.en.html]
+</span><span class="inferred0"><a name="line52"></a>  52 #   Translation of presentation on Ruby by Masatoshi Seki.
+</span><span class="inferred1"><a name="line53"></a>  53 
+</span><span class="marked0"><a name="line54"></a>  54 require 'socket'
+</span><span class="marked1"><a name="line55"></a>  55 require 'thread'
+</span><span class="marked0"><a name="line56"></a>  56 require 'fcntl'
+</span><span class="marked1"><a name="line57"></a>  57 require 'drb/eq'
+</span><span class="inferred0"><a name="line58"></a>  58 
+</span><span class="inferred1"><a name="line59"></a>  59 #
+</span><span class="inferred0"><a name="line60"></a>  60 # == Overview
+</span><span class="inferred1"><a name="line61"></a>  61 #
+</span><span class="inferred0"><a name="line62"></a>  62 # dRuby is a distributed object system for Ruby.  It is written in
+</span><span class="inferred1"><a name="line63"></a>  63 # pure Ruby and uses its own protocol.  No add-in services are needed
+</span><span class="inferred0"><a name="line64"></a>  64 # beyond those provided by the Ruby runtime, such as TCP sockets.  It
+</span><span class="inferred1"><a name="line65"></a>  65 # does not rely on or interoperate with other distributed object
+</span><span class="inferred0"><a name="line66"></a>  66 # systems such as CORBA, RMI, or .NET.
+</span><span class="inferred1"><a name="line67"></a>  67 #
+</span><span class="inferred0"><a name="line68"></a>  68 # dRuby allows methods to be called in one Ruby process upon a Ruby
+</span><span class="inferred1"><a name="line69"></a>  69 # object located in another Ruby process, even on another machine.
+</span><span class="inferred0"><a name="line70"></a>  70 # References to objects can be passed between processes.  Method
+</span><span class="inferred1"><a name="line71"></a>  71 # arguments and return values are dumped and loaded in marshalled
+</span><span class="inferred0"><a name="line72"></a>  72 # format.  All of this is done transparently to both the caller of the
+</span><span class="inferred1"><a name="line73"></a>  73 # remote method and the object that it is called upon.
+</span><span class="inferred0"><a name="line74"></a>  74 #
+</span><span class="inferred1"><a name="line75"></a>  75 # An object in a remote process is locally represented by a
+</span><span class="inferred0"><a name="line76"></a>  76 # DRb::DRbObject instance.  This acts as a sort of proxy for the
+</span><span class="inferred1"><a name="line77"></a>  77 # remote object.  Methods called upon this DRbObject instance are
+</span><span class="inferred0"><a name="line78"></a>  78 # forwarded to its remote object.  This is arranged dynamically at run
+</span><span class="inferred1"><a name="line79"></a>  79 # time.  There are no statically declared interfaces for remote
+</span><span class="inferred0"><a name="line80"></a>  80 # objects, such as CORBA's IDL.
+</span><span class="inferred1"><a name="line81"></a>  81 #
+</span><span class="inferred0"><a name="line82"></a>  82 # dRuby calls made into a process are handled by a DRb::DRbServer
+</span><span class="inferred1"><a name="line83"></a>  83 # instance within that process.  This reconstitutes the method call,
+</span><span class="inferred0"><a name="line84"></a>  84 # invokes it upon the specified local object, and returns the value to
+</span><span class="inferred1"><a name="line85"></a>  85 # the remote caller.  Any object can receive calls over dRuby.  There
+</span><span class="inferred0"><a name="line86"></a>  86 # is no need to implement a special interface, or mixin special
+</span><span class="inferred1"><a name="line87"></a>  87 # functionality.  Nor, in the general case, does an object need to
+</span><span class="inferred0"><a name="line88"></a>  88 # explicitly register itself with a DRbServer in order to receive
+</span><span class="inferred1"><a name="line89"></a>  89 # dRuby calls.
+</span><span class="inferred0"><a name="line90"></a>  90 #
+</span><span class="inferred1"><a name="line91"></a>  91 # One process wishing to make dRuby calls upon another process must
+</span><span class="inferred0"><a name="line92"></a>  92 # somehow obtain an initial reference to an object in the remote
+</span><span class="inferred1"><a name="line93"></a>  93 # process by some means other than as the return value of a remote
+</span><span class="inferred0"><a name="line94"></a>  94 # method call, as there is initially no remote object reference it can
+</span><span class="inferred1"><a name="line95"></a>  95 # invoke a method upon.  This is done by attaching to the server by
+</span><span class="inferred0"><a name="line96"></a>  96 # URI.  Each DRbServer binds itself to a URI such as
+</span><span class="inferred1"><a name="line97"></a>  97 # 'druby://example.com:8787'.  A DRbServer can have an object attached
+</span><span class="inferred0"><a name="line98"></a>  98 # to it that acts as the server's *front* *object*.  A DRbObject can
+</span><span class="inferred1"><a name="line99"></a>  99 # be explicitly created from the server's URI.  This DRbObject's
+</span><span class="inferred0"><a name="line100"></a> 100 # remote object will be the server's front object.  This front object
+</span><span class="inferred1"><a name="line101"></a> 101 # can then return references to other Ruby objects in the DRbServer's
+</span><span class="inferred0"><a name="line102"></a> 102 # process.
+</span><span class="inferred1"><a name="line103"></a> 103 #
+</span><span class="inferred0"><a name="line104"></a> 104 # Method calls made over dRuby behave largely the same as normal Ruby
+</span><span class="inferred1"><a name="line105"></a> 105 # method calls made within a process.  Method calls with blocks are
+</span><span class="inferred0"><a name="line106"></a> 106 # supported, as are raising exceptions.  In addition to a method's
+</span><span class="inferred1"><a name="line107"></a> 107 # standard errors, a dRuby call may also raise one of the
+</span><span class="inferred0"><a name="line108"></a> 108 # dRuby-specific errors, all of which are subclasses of DRb::DRbError.
+</span><span class="inferred1"><a name="line109"></a> 109 #
+</span><span class="inferred0"><a name="line110"></a> 110 # Any type of object can be passed as an argument to a dRuby call or
+</span><span class="inferred1"><a name="line111"></a> 111 # returned as its return value.  By default, such objects are dumped
+</span><span class="inferred0"><a name="line112"></a> 112 # or marshalled at the local end, then loaded or unmarshalled at the
+</span><span class="inferred1"><a name="line113"></a> 113 # remote end.  The remote end therefore receives a copy of the local
+</span><span class="inferred0"><a name="line114"></a> 114 # object, not a distributed reference to it; methods invoked upon this
+</span><span class="inferred1"><a name="line115"></a> 115 # copy are executed entirely in the remote process, not passed on to
+</span><span class="inferred0"><a name="line116"></a> 116 # the local original.  This has semantics similar to pass-by-value.
+</span><span class="inferred1"><a name="line117"></a> 117 #
+</span><span class="inferred0"><a name="line118"></a> 118 # However, if an object cannot be marshalled, a dRuby reference to it
+</span><span class="inferred1"><a name="line119"></a> 119 # is passed or returned instead.  This will turn up at the remote end
+</span><span class="inferred0"><a name="line120"></a> 120 # as a DRbObject instance.  All methods invoked upon this remote proxy
+</span><span class="inferred1"><a name="line121"></a> 121 # are forwarded to the local object, as described in the discussion of
+</span><span class="inferred0"><a name="line122"></a> 122 # DRbObjects.  This has semantics similar to the normal Ruby
+</span><span class="inferred1"><a name="line123"></a> 123 # pass-by-reference.
+</span><span class="inferred0"><a name="line124"></a> 124 # 
+</span><span class="inferred1"><a name="line125"></a> 125 # The easiest way to signal that we want an otherwise marshallable
+</span><span class="inferred0"><a name="line126"></a> 126 # object to be passed or returned as a DRbObject reference, rather
+</span><span class="inferred1"><a name="line127"></a> 127 # than marshalled and sent as a copy, is to include the
+</span><span class="inferred0"><a name="line128"></a> 128 # DRb::DRbUndumped mixin module.
+</span><span class="inferred1"><a name="line129"></a> 129 #
+</span><span class="inferred0"><a name="line130"></a> 130 # dRuby supports calling remote methods with blocks.  As blocks (or
+</span><span class="inferred1"><a name="line131"></a> 131 # rather the Proc objects that represent them) are not marshallable,
+</span><span class="inferred0"><a name="line132"></a> 132 # the block executes in the local, not the remote, context.  Each
+</span><span class="inferred1"><a name="line133"></a> 133 # value yielded to the block is passed from the remote object to the
+</span><span class="inferred0"><a name="line134"></a> 134 # local block, then the value returned by each block invocation is
+</span><span class="inferred1"><a name="line135"></a> 135 # passed back to the remote execution context to be collected, before
+</span><span class="inferred0"><a name="line136"></a> 136 # the collected values are finally returned to the local context as
+</span><span class="inferred1"><a name="line137"></a> 137 # the return value of the method invocation.
+</span><span class="inferred0"><a name="line138"></a> 138 # 
+</span><span class="inferred1"><a name="line139"></a> 139 # == Examples of usage
+</span><span class="inferred0"><a name="line140"></a> 140 #
+</span><span class="inferred1"><a name="line141"></a> 141 # For more dRuby samples, see the +samples+ directory in the full
+</span><span class="inferred0"><a name="line142"></a> 142 # dRuby distribution.
+</span><span class="inferred1"><a name="line143"></a> 143 #
+</span><span class="inferred0"><a name="line144"></a> 144 # === dRuby in client/server mode
+</span><span class="inferred1"><a name="line145"></a> 145 #
+</span><span class="inferred0"><a name="line146"></a> 146 # This illustrates setting up a simple client-server drb
+</span><span class="inferred1"><a name="line147"></a> 147 # system.  Run the server and client code in different terminals,
+</span><span class="inferred0"><a name="line148"></a> 148 # starting the server code first.
+</span><span class="inferred1"><a name="line149"></a> 149 #
+</span><span class="inferred0"><a name="line150"></a> 150 # ==== Server code
+</span><span class="inferred1"><a name="line151"></a> 151 #    
+</span><span class="inferred0"><a name="line152"></a> 152 #   require 'drb/drb'
+</span><span class="inferred1"><a name="line153"></a> 153 #     
+</span><span class="inferred0"><a name="line154"></a> 154 #   # The URI for the server to connect to
+</span><span class="inferred1"><a name="line155"></a> 155 #   URI=&quot;druby://localhost:8787&quot; 
+</span><span class="inferred0"><a name="line156"></a> 156 #     
+</span><span class="inferred1"><a name="line157"></a> 157 #   class TimeServer
+</span><span class="inferred0"><a name="line158"></a> 158 #     
+</span><span class="inferred1"><a name="line159"></a> 159 #     def get_current_time
+</span><span class="inferred0"><a name="line160"></a> 160 #       return Time.now
+</span><span class="inferred1"><a name="line161"></a> 161 #     end
+</span><span class="inferred0"><a name="line162"></a> 162 #     
+</span><span class="inferred1"><a name="line163"></a> 163 #   end
+</span><span class="inferred0"><a name="line164"></a> 164 #     
+</span><span class="inferred1"><a name="line165"></a> 165 #   # The object that handles requests on the server
+</span><span class="inferred0"><a name="line166"></a> 166 #   FRONT_OBJECT=TimeServer.new
+</span><span class="inferred1"><a name="line167"></a> 167 #
+</span><span class="inferred0"><a name="line168"></a> 168 #   $SAFE = 1   # disable eval() and friends
+</span><span class="inferred1"><a name="line169"></a> 169 #   
+</span><span class="inferred0"><a name="line170"></a> 170 #   DRb.start_service(URI, FRONT_OBJECT)
+</span><span class="inferred1"><a name="line171"></a> 171 #   # Wait for the drb server thread to finish before exiting.
+</span><span class="inferred0"><a name="line172"></a> 172 #   DRb.thread.join
+</span><span class="inferred1"><a name="line173"></a> 173 #
+</span><span class="inferred0"><a name="line174"></a> 174 # ==== Client code
+</span><span class="inferred1"><a name="line175"></a> 175 #     
+</span><span class="inferred0"><a name="line176"></a> 176 #   require 'drb/drb'
+</span><span class="inferred1"><a name="line177"></a> 177 #   
+</span><span class="inferred0"><a name="line178"></a> 178 #   # The URI to connect to
+</span><span class="inferred1"><a name="line179"></a> 179 #   SERVER_URI=&quot;druby://localhost:8787&quot;
+</span><span class="inferred0"><a name="line180"></a> 180 #
+</span><span class="inferred1"><a name="line181"></a> 181 #   # Start a local DRbServer to handle callbacks.
+</span><span class="inferred0"><a name="line182"></a> 182 #   #
+</span><span class="inferred1"><a name="line183"></a> 183 #   # Not necessary for this small example, but will be required
+</span><span class="inferred0"><a name="line184"></a> 184 #   # as soon as we pass a non-marshallable object as an argument
+</span><span class="inferred1"><a name="line185"></a> 185 #   # to a dRuby call.
+</span><span class="inferred0"><a name="line186"></a> 186 #   DRb.start_service
+</span><span class="inferred1"><a name="line187"></a> 187 #   
+</span><span class="inferred0"><a name="line188"></a> 188 #   timeserver = DRbObject.new_with_uri(SERVER_URI)
+</span><span class="inferred1"><a name="line189"></a> 189 #   puts timeserver.get_current_time 
+</span><span class="inferred0"><a name="line190"></a> 190 #
+</span><span class="inferred1"><a name="line191"></a> 191 # === Remote objects under dRuby
+</span><span class="inferred0"><a name="line192"></a> 192 #
+</span><span class="inferred1"><a name="line193"></a> 193 # This example illustrates returning a reference to an object
+</span><span class="inferred0"><a name="line194"></a> 194 # from a dRuby call.  The Logger instances live in the server
+</span><span class="inferred1"><a name="line195"></a> 195 # process.  References to them are returned to the client process,
+</span><span class="inferred0"><a name="line196"></a> 196 # where methods can be invoked upon them.  These methods are 
+</span><span class="inferred1"><a name="line197"></a> 197 # executed in the server process.
+</span><span class="inferred0"><a name="line198"></a> 198 #
+</span><span class="inferred1"><a name="line199"></a> 199 # ==== Server code
+</span><span class="inferred0"><a name="line200"></a> 200 #   
+</span><span class="inferred1"><a name="line201"></a> 201 #   require 'drb/drb'
+</span><span class="inferred0"><a name="line202"></a> 202 #   
+</span><span class="inferred1"><a name="line203"></a> 203 #   URI=&quot;druby://localhost:8787&quot;
+</span><span class="inferred0"><a name="line204"></a> 204 #   
+</span><span class="inferred1"><a name="line205"></a> 205 #   class Logger
+</span><span class="inferred0"><a name="line206"></a> 206 #
+</span><span class="inferred1"><a name="line207"></a> 207 #       # Make dRuby send Logger instances as dRuby references,
+</span><span class="inferred0"><a name="line208"></a> 208 #       # not copies.
+</span><span class="inferred1"><a name="line209"></a> 209 #       include DRb::DRbUndumped
+</span><span class="inferred0"><a name="line210"></a> 210 #   
+</span><span class="inferred1"><a name="line211"></a> 211 #       def initialize(n, fname)
+</span><span class="inferred0"><a name="line212"></a> 212 #           @name = n
+</span><span class="inferred1"><a name="line213"></a> 213 #           @filename = fname
+</span><span class="inferred0"><a name="line214"></a> 214 #       end
+</span><span class="inferred1"><a name="line215"></a> 215 #   
+</span><span class="inferred0"><a name="line216"></a> 216 #       def log(message)
+</span><span class="inferred1"><a name="line217"></a> 217 #           File.open(@filename, &quot;a&quot;) do |f|
+</span><span class="inferred0"><a name="line218"></a> 218 #               f.puts(&quot;#{Time.now}: #{@name}: #{message}&quot;)
+</span><span class="inferred1"><a name="line219"></a> 219 #           end
+</span><span class="inferred0"><a name="line220"></a> 220 #       end
+</span><span class="inferred1"><a name="line221"></a> 221 #   
+</span><span class="inferred0"><a name="line222"></a> 222 #   end
+</span><span class="inferred1"><a name="line223"></a> 223 #   
+</span><span class="inferred0"><a name="line224"></a> 224 #   # We have a central object for creating and retrieving loggers.
+</span><span class="inferred1"><a name="line225"></a> 225 #   # This retains a local reference to all loggers created.  This
+</span><span class="inferred0"><a name="line226"></a> 226 #   # is so an existing logger can be looked up by name, but also
+</span><span class="inferred1"><a name="line227"></a> 227 #   # to prevent loggers from being garbage collected.  A dRuby
+</span><span class="inferred0"><a name="line228"></a> 228 #   # reference to an object is not sufficient to prevent it being
+</span><span class="inferred1"><a name="line229"></a> 229 #   # garbage collected!
+</span><span class="inferred0"><a name="line230"></a> 230 #   class LoggerFactory
+</span><span class="inferred1"><a name="line231"></a> 231 #   
+</span><span class="inferred0"><a name="line232"></a> 232 #       def initialize(bdir)
+</span><span class="inferred1"><a name="line233"></a> 233 #           @basedir = bdir
+</span><span class="inferred0"><a name="line234"></a> 234 #           @loggers = {}
+</span><span class="inferred1"><a name="line235"></a> 235 #       end
+</span><span class="inferred0"><a name="line236"></a> 236 #   
+</span><span class="inferred1"><a name="line237"></a> 237 #       def get_logger(name)
+</span><span class="inferred0"><a name="line238"></a> 238 #           if !@loggers.has_key? name
+</span><span class="inferred1"><a name="line239"></a> 239 #               # make the filename safe, then declare it to be so
+</span><span class="inferred0"><a name="line240"></a> 240 #               fname = name.gsub(/[.\/]/, &quot;_&quot;).untaint
+</span><span class="inferred1"><a name="line241"></a> 241 #               @loggers[name] = Logger.new(name, @basedir + &quot;/&quot; + fname)
+</span><span class="inferred0"><a name="line242"></a> 242 #           end
+</span><span class="inferred1"><a name="line243"></a> 243 #           return @loggers[name]
+</span><span class="inferred0"><a name="line244"></a> 244 #       end
+</span><span class="inferred1"><a name="line245"></a> 245 #   
+</span><span class="inferred0"><a name="line246"></a> 246 #   end
+</span><span class="inferred1"><a name="line247"></a> 247 #   
+</span><span class="inferred0"><a name="line248"></a> 248 #   FRONT_OBJECT=LoggerFactory.new(&quot;/tmp/dlog&quot;)
+</span><span class="inferred1"><a name="line249"></a> 249 #
+</span><span class="inferred0"><a name="line250"></a> 250 #   $SAFE = 1   # disable eval() and friends
+</span><span class="inferred1"><a name="line251"></a> 251 #   
+</span><span class="inferred0"><a name="line252"></a> 252 #   DRb.start_service(URI, FRONT_OBJECT)
+</span><span class="inferred1"><a name="line253"></a> 253 #   DRb.thread.join
+</span><span class="inferred0"><a name="line254"></a> 254 #
+</span><span class="inferred1"><a name="line255"></a> 255 # ==== Client code
+</span><span class="inferred0"><a name="line256"></a> 256 #
+</span><span class="inferred1"><a name="line257"></a> 257 #   require 'drb/drb'
+</span><span class="inferred0"><a name="line258"></a> 258 #   
+</span><span class="inferred1"><a name="line259"></a> 259 #   SERVER_URI=&quot;druby://localhost:8787&quot;
+</span><span class="inferred0"><a name="line260"></a> 260 #
+</span><span class="inferred1"><a name="line261"></a> 261 #   DRb.start_service
+</span><span class="inferred0"><a name="line262"></a> 262 #   
+</span><span class="inferred1"><a name="line263"></a> 263 #   log_service=DRbObject.new_with_uri(SERVER_URI)
+</span><span class="inferred0"><a name="line264"></a> 264 #   
+</span><span class="inferred1"><a name="line265"></a> 265 #   [&quot;loga&quot;, &quot;logb&quot;, &quot;logc&quot;].each do |logname|
+</span><span class="inferred0"><a name="line266"></a> 266 #   
+</span><span class="inferred1"><a name="line267"></a> 267 #       logger=log_service.get_logger(logname)
+</span><span class="inferred0"><a name="line268"></a> 268 #   
+</span><span class="inferred1"><a name="line269"></a> 269 #       logger.log(&quot;Hello, world!&quot;)
+</span><span class="inferred0"><a name="line270"></a> 270 #       logger.log(&quot;Goodbye, world!&quot;)
+</span><span class="inferred1"><a name="line271"></a> 271 #       logger.log(&quot;=== EOT ===&quot;)
+</span><span class="inferred0"><a name="line272"></a> 272 #   
+</span><span class="inferred1"><a name="line273"></a> 273 #   end
+</span><span class="inferred0"><a name="line274"></a> 274 #
+</span><span class="inferred1"><a name="line275"></a> 275 # == Security
+</span><span class="inferred0"><a name="line276"></a> 276 #
+</span><span class="inferred1"><a name="line277"></a> 277 # As with all network services, security needs to be considered when
+</span><span class="inferred0"><a name="line278"></a> 278 # using dRuby.  By allowing external access to a Ruby object, you are
+</span><span class="inferred1"><a name="line279"></a> 279 # not only allowing outside clients to call the methods you have
+</span><span class="inferred0"><a name="line280"></a> 280 # defined for that object, but by default to execute arbitrary Ruby
+</span><span class="inferred1"><a name="line281"></a> 281 # code on your server.  Consider the following:
+</span><span class="inferred0"><a name="line282"></a> 282 #
+</span><span class="inferred1"><a name="line283"></a> 283 #    # !!! UNSAFE CODE !!!
+</span><span class="inferred0"><a name="line284"></a> 284 #    ro = DRbObject::new_with_uri(&quot;druby://your.server.com:8989&quot;)
+</span><span class="inferred1"><a name="line285"></a> 285 #    class &lt;&lt; ro
+</span><span class="inferred0"><a name="line286"></a> 286 #      undef :instance_eval  # force call to be passed to remote object
+</span><span class="inferred1"><a name="line287"></a> 287 #    end
+</span><span class="inferred0"><a name="line288"></a> 288 #    ro.instance_eval(&quot;`rm -rf *`&quot;)
+</span><span class="inferred1"><a name="line289"></a> 289 #
+</span><span class="inferred0"><a name="line290"></a> 290 # The dangers posed by instance_eval and friends are such that a
+</span><span class="inferred1"><a name="line291"></a> 291 # DRbServer should generally be run with $SAFE set to at least 
+</span><span class="inferred0"><a name="line292"></a> 292 # level 1.  This will disable eval() and related calls on strings 
+</span><span class="inferred1"><a name="line293"></a> 293 # passed across the wire.  The sample usage code given above follows 
+</span><span class="inferred0"><a name="line294"></a> 294 # this practice.
+</span><span class="inferred1"><a name="line295"></a> 295 #
+</span><span class="inferred0"><a name="line296"></a> 296 # A DRbServer can be configured with an access control list to
+</span><span class="inferred1"><a name="line297"></a> 297 # selectively allow or deny access from specified IP addresses.  The
+</span><span class="inferred0"><a name="line298"></a> 298 # main druby distribution provides the ACL class for this purpose.  In
+</span><span class="inferred1"><a name="line299"></a> 299 # general, this mechanism should only be used alongside, rather than
+</span><span class="inferred0"><a name="line300"></a> 300 # as a replacement for, a good firewall.
+</span><span class="inferred1"><a name="line301"></a> 301 #
+</span><span class="inferred0"><a name="line302"></a> 302 # == dRuby internals
+</span><span class="inferred1"><a name="line303"></a> 303 #
+</span><span class="inferred0"><a name="line304"></a> 304 # dRuby is implemented using three main components: a remote method
+</span><span class="inferred1"><a name="line305"></a> 305 # call marshaller/unmarshaller; a transport protocol; and an
+</span><span class="inferred0"><a name="line306"></a> 306 # ID-to-object mapper.  The latter two can be directly, and the first
+</span><span class="inferred1"><a name="line307"></a> 307 # indirectly, replaced, in order to provide different behaviour and
+</span><span class="inferred0"><a name="line308"></a> 308 # capabilities.
+</span><span class="inferred1"><a name="line309"></a> 309 #
+</span><span class="inferred0"><a name="line310"></a> 310 # Marshalling and unmarshalling of remote method calls is performed by
+</span><span class="inferred1"><a name="line311"></a> 311 # a DRb::DRbMessage instance.  This uses the Marshal module to dump
+</span><span class="inferred0"><a name="line312"></a> 312 # the method call before sending it over the transport layer, then
+</span><span class="inferred1"><a name="line313"></a> 313 # reconstitute it at the other end.  There is normally no need to
+</span><span class="inferred0"><a name="line314"></a> 314 # replace this component, and no direct way is provided to do so.
+</span><span class="inferred1"><a name="line315"></a> 315 # However, it is possible to implement an alternative marshalling
+</span><span class="inferred0"><a name="line316"></a> 316 # scheme as part of an implementation of the transport layer.
+</span><span class="inferred1"><a name="line317"></a> 317 #
+</span><span class="inferred0"><a name="line318"></a> 318 # The transport layer is responsible for opening client and server
+</span><span class="inferred1"><a name="line319"></a> 319 # network connections and forwarding dRuby request across them.
+</span><span class="inferred0"><a name="line320"></a> 320 # Normally, it uses DRb::DRbMessage internally to manage marshalling
+</span><span class="inferred1"><a name="line321"></a> 321 # and unmarshalling.  The transport layer is managed by
+</span><span class="inferred0"><a name="line322"></a> 322 # DRb::DRbProtocol.  Multiple protocols can be installed in
+</span><span class="inferred1"><a name="line323"></a> 323 # DRbProtocol at the one time; selection between them is determined by
+</span><span class="inferred0"><a name="line324"></a> 324 # the scheme of a dRuby URI.  The default transport protocol is
+</span><span class="inferred1"><a name="line325"></a> 325 # selected by the scheme 'druby:', and implemented by
+</span><span class="inferred0"><a name="line326"></a> 326 # DRb::DRbTCPSocket.  This uses plain TCP/IP sockets for
+</span><span class="inferred1"><a name="line327"></a> 327 # communication.  An alternative protocol, using UNIX domain sockets,
+</span><span class="inferred0"><a name="line328"></a> 328 # is implemented by DRb::DRbUNIXSocket in the file drb/unix.rb, and
+</span><span class="inferred1"><a name="line329"></a> 329 # selected by the scheme 'drbunix:'.  A sample implementation over
+</span><span class="inferred0"><a name="line330"></a> 330 # HTTP can be found in the samples accompanying the main dRuby
+</span><span class="inferred1"><a name="line331"></a> 331 # distribution.
+</span><span class="inferred0"><a name="line332"></a> 332 #
+</span><span class="inferred1"><a name="line333"></a> 333 # The ID-to-object mapping component maps dRuby object ids to the
+</span><span class="inferred0"><a name="line334"></a> 334 # objects they refer to, and vice versa.  The implementation to use
+</span><span class="inferred1"><a name="line335"></a> 335 # can be specified as part of a DRb::DRbServer's configuration.  The
+</span><span class="inferred0"><a name="line336"></a> 336 # default implementation is provided by DRb::DRbIdConv.  It uses an
+</span><span class="inferred1"><a name="line337"></a> 337 # object's ObjectSpace id as its dRuby id.  This means that the dRuby
+</span><span class="inferred0"><a name="line338"></a> 338 # reference to that object only remains meaningful for the lifetime of
+</span><span class="inferred1"><a name="line339"></a> 339 # the object's process and the lifetime of the object within that
+</span><span class="inferred0"><a name="line340"></a> 340 # process.  A modified implementation is provided by DRb::TimerIdConv
+</span><span class="inferred1"><a name="line341"></a> 341 # in the file drb/timeridconv.rb.  This implementation retains a local
+</span><span class="inferred0"><a name="line342"></a> 342 # reference to all objects exported over dRuby for a configurable
+</span><span class="inferred1"><a name="line343"></a> 343 # period of time (defaulting to ten minutes), to prevent them being
+</span><span class="inferred0"><a name="line344"></a> 344 # garbage-collected within this time.  Another sample implementation
+</span><span class="inferred1"><a name="line345"></a> 345 # is provided in sample/name.rb in the main dRuby distribution.  This
+</span><span class="inferred0"><a name="line346"></a> 346 # allows objects to specify their own id or &quot;name&quot;.  A dRuby reference
+</span><span class="inferred1"><a name="line347"></a> 347 # can be made persistent across processes by having each process
+</span><span class="inferred0"><a name="line348"></a> 348 # register an object using the same dRuby name.
+</span><span class="inferred1"><a name="line349"></a> 349 #
+</span><span class="marked0"><a name="line350"></a> 350 module DRb
+</span><span class="inferred1"><a name="line351"></a> 351 
+</span><span class="inferred0"><a name="line352"></a> 352   # Superclass of all errors raised in the DRb module.
+</span><span class="marked1"><a name="line353"></a> 353   class DRbError &lt; RuntimeError; end
+</span><span class="inferred0"><a name="line354"></a> 354 
+</span><span class="inferred1"><a name="line355"></a> 355   # Error raised when an error occurs on the underlying communication
+</span><span class="inferred0"><a name="line356"></a> 356   # protocol.
+</span><span class="marked1"><a name="line357"></a> 357   class DRbConnError &lt; DRbError; end
+</span><span class="inferred0"><a name="line358"></a> 358 
+</span><span class="inferred1"><a name="line359"></a> 359   # Class responsible for converting between an object and its id.
+</span><span class="inferred0"><a name="line360"></a> 360   #
+</span><span class="inferred1"><a name="line361"></a> 361   # This, the default implementation, uses an object's local ObjectSpace
+</span><span class="inferred0"><a name="line362"></a> 362   # __id__ as its id.  This means that an object's identification over
+</span><span class="inferred1"><a name="line363"></a> 363   # drb remains valid only while that object instance remains alive 
+</span><span class="inferred0"><a name="line364"></a> 364   # within the server runtime.
+</span><span class="inferred1"><a name="line365"></a> 365   #
+</span><span class="inferred0"><a name="line366"></a> 366   # For alternative mechanisms, see DRb::TimerIdConv in rdb/timeridconv.rb
+</span><span class="inferred1"><a name="line367"></a> 367   # and DRbNameIdConv in sample/name.rb in the full drb distribution.
+</span><span class="marked0"><a name="line368"></a> 368   class DRbIdConv
+</span><span class="inferred1"><a name="line369"></a> 369 
+</span><span class="inferred0"><a name="line370"></a> 370     # Convert an object reference id to an object.
+</span><span class="inferred1"><a name="line371"></a> 371     #
+</span><span class="inferred0"><a name="line372"></a> 372     # This implementation looks up the reference id in the local object
+</span><span class="inferred1"><a name="line373"></a> 373     # space and returns the object it refers to.
+</span><span class="marked0"><a name="line374"></a> 374     def to_obj(ref)
+</span><span class="uncovered1"><a name="line375"></a> 375       ObjectSpace._id2ref(ref)
+</span><span class="uncovered0"><a name="line376"></a> 376     end
+</span><span class="inferred1"><a name="line377"></a> 377     
+</span><span class="inferred0"><a name="line378"></a> 378     # Convert an object into a reference id.
+</span><span class="inferred1"><a name="line379"></a> 379     #
+</span><span class="inferred0"><a name="line380"></a> 380     # This implementation returns the object's __id__ in the local
+</span><span class="inferred1"><a name="line381"></a> 381     # object space.
+</span><span class="marked0"><a name="line382"></a> 382     def to_id(obj)
+</span><span class="uncovered1"><a name="line383"></a> 383       obj.nil? ? nil : obj.__id__
+</span><span class="uncovered0"><a name="line384"></a> 384     end
+</span><span class="uncovered1"><a name="line385"></a> 385   end
+</span><span class="inferred0"><a name="line386"></a> 386 
+</span><span class="inferred1"><a name="line387"></a> 387   # Mixin module making an object undumpable or unmarshallable.
+</span><span class="inferred0"><a name="line388"></a> 388   #
+</span><span class="inferred1"><a name="line389"></a> 389   # If an object which includes this module is returned by method
+</span><span class="inferred0"><a name="line390"></a> 390   # called over drb, then the object remains in the server space
+</span><span class="inferred1"><a name="line391"></a> 391   # and a reference to the object is returned, rather than the
+</span><span class="inferred0"><a name="line392"></a> 392   # object being marshalled and moved into the client space.
+</span><span class="marked1"><a name="line393"></a> 393   module DRbUndumped 
+</span><span class="marked0"><a name="line394"></a> 394     def _dump(dummy)  # :nodoc:
+</span><span class="uncovered1"><a name="line395"></a> 395       raise TypeError, 'can\'t dump'
+</span><span class="uncovered0"><a name="line396"></a> 396     end
+</span><span class="uncovered1"><a name="line397"></a> 397   end
+</span><span class="inferred0"><a name="line398"></a> 398 
+</span><span class="inferred1"><a name="line399"></a> 399   # Error raised by the DRb module when an attempt is made to refer to
+</span><span class="inferred0"><a name="line400"></a> 400   # the context's current drb server but the context does not have one.
+</span><span class="inferred1"><a name="line401"></a> 401   # See #current_server.
+</span><span class="marked0"><a name="line402"></a> 402   class DRbServerNotFound &lt; DRbError; end
+</span><span class="inferred1"><a name="line403"></a> 403 
+</span><span class="inferred0"><a name="line404"></a> 404   # Error raised by the DRbProtocol module when it cannot find any
+</span><span class="inferred1"><a name="line405"></a> 405   # protocol implementation support the scheme specified in a URI.
+</span><span class="marked0"><a name="line406"></a> 406   class DRbBadURI &lt; DRbError; end
+</span><span class="inferred1"><a name="line407"></a> 407 
+</span><span class="inferred0"><a name="line408"></a> 408   # Error raised by a dRuby protocol when it doesn't support the
+</span><span class="inferred1"><a name="line409"></a> 409   # scheme specified in a URI.  See DRb::DRbProtocol.
+</span><span class="marked0"><a name="line410"></a> 410   class DRbBadScheme &lt; DRbError; end
+</span><span class="inferred1"><a name="line411"></a> 411 
+</span><span class="inferred0"><a name="line412"></a> 412   # An exception wrapping a DRb::DRbUnknown object
+</span><span class="marked1"><a name="line413"></a> 413   class DRbUnknownError &lt; DRbError
+</span><span class="inferred0"><a name="line414"></a> 414 
+</span><span class="inferred1"><a name="line415"></a> 415     # Create a new DRbUnknownError for the DRb::DRbUnknown object +unknown+
+</span><span class="marked0"><a name="line416"></a> 416     def initialize(unknown)
+</span><span class="uncovered1"><a name="line417"></a> 417       @unknown = unknown
+</span><span class="uncovered0"><a name="line418"></a> 418       super(unknown.name)
+</span><span class="uncovered1"><a name="line419"></a> 419     end
+</span><span class="inferred0"><a name="line420"></a> 420 
+</span><span class="inferred1"><a name="line421"></a> 421     # Get the wrapped DRb::DRbUnknown object.
+</span><span class="marked0"><a name="line422"></a> 422     attr_reader :unknown
+</span><span class="inferred1"><a name="line423"></a> 423 
+</span><span class="marked0"><a name="line424"></a> 424     def self._load(s)  # :nodoc:
+</span><span class="uncovered1"><a name="line425"></a> 425       Marshal::load(s)
+</span><span class="uncovered0"><a name="line426"></a> 426     end
+</span><span class="inferred1"><a name="line427"></a> 427     
+</span><span class="marked0"><a name="line428"></a> 428     def _dump(lv) # :nodoc:
+</span><span class="uncovered1"><a name="line429"></a> 429       Marshal::dump(@unknown)
+</span><span class="uncovered0"><a name="line430"></a> 430     end
+</span><span class="uncovered1"><a name="line431"></a> 431   end
+</span><span class="inferred0"><a name="line432"></a> 432 
+</span><span class="inferred1"><a name="line433"></a> 433   # An exception wrapping an error object
+</span><span class="marked0"><a name="line434"></a> 434   class DRbRemoteError &lt; DRbError
+</span><span class="marked1"><a name="line435"></a> 435     def initialize(error)
+</span><span class="uncovered0"><a name="line436"></a> 436       @reason = error.class.to_s
+</span><span class="uncovered1"><a name="line437"></a> 437       super(&quot;#{error.message} (#{error.class})&quot;)
+</span><span class="uncovered0"><a name="line438"></a> 438       set_backtrace(error.backtrace)
+</span><span class="uncovered1"><a name="line439"></a> 439     end
+</span><span class="inferred0"><a name="line440"></a> 440 
+</span><span class="inferred1"><a name="line441"></a> 441     # the class of the error, as a string.
+</span><span class="marked0"><a name="line442"></a> 442     attr_reader :reason
+</span><span class="inferred1"><a name="line443"></a> 443   end
+</span><span class="inferred0"><a name="line444"></a> 444 
+</span><span class="inferred1"><a name="line445"></a> 445   # Class wrapping a marshalled object whose type is unknown locally.
+</span><span class="inferred0"><a name="line446"></a> 446   #
+</span><span class="inferred1"><a name="line447"></a> 447   # If an object is returned by a method invoked over drb, but the
+</span><span class="inferred0"><a name="line448"></a> 448   # class of the object is unknown in the client namespace, or
+</span><span class="inferred1"><a name="line449"></a> 449   # the object is a constant unknown in the client namespace, then
+</span><span class="inferred0"><a name="line450"></a> 450   # the still-marshalled object is returned wrapped in a DRbUnknown instance.
+</span><span class="inferred1"><a name="line451"></a> 451   #
+</span><span class="inferred0"><a name="line452"></a> 452   # If this object is passed as an argument to a method invoked over
+</span><span class="inferred1"><a name="line453"></a> 453   # drb, then the wrapped object is passed instead.
+</span><span class="inferred0"><a name="line454"></a> 454   #
+</span><span class="inferred1"><a name="line455"></a> 455   # The class or constant name of the object can be read from the
+</span><span class="inferred0"><a name="line456"></a> 456   # +name+ attribute.  The marshalled object is held in the +buf+
+</span><span class="inferred1"><a name="line457"></a> 457   # attribute.
+</span><span class="marked0"><a name="line458"></a> 458   class DRbUnknown
+</span><span class="inferred1"><a name="line459"></a> 459     
+</span><span class="inferred0"><a name="line460"></a> 460     # Create a new DRbUnknown object.
+</span><span class="inferred1"><a name="line461"></a> 461     #
+</span><span class="inferred0"><a name="line462"></a> 462     # +buf+ is a string containing a marshalled object that could not
+</span><span class="inferred1"><a name="line463"></a> 463     # be unmarshalled.  +err+ is the error message that was raised 
+</span><span class="inferred0"><a name="line464"></a> 464     # when the unmarshalling failed.  It is used to determine the
+</span><span class="inferred1"><a name="line465"></a> 465     # name of the unmarshalled object.
+</span><span class="marked0"><a name="line466"></a> 466     def initialize(err, buf)
+</span><span class="uncovered1"><a name="line467"></a> 467       case err.to_s
+</span><span class="uncovered0"><a name="line468"></a> 468       when /uninitialized constant (\S+)/
+</span><span class="uncovered1"><a name="line469"></a> 469 	@name = $1
+</span><span class="uncovered0"><a name="line470"></a> 470       when /undefined class\/module (\S+)/
+</span><span class="uncovered1"><a name="line471"></a> 471 	@name = $1
+</span><span class="uncovered0"><a name="line472"></a> 472       else
+</span><span class="uncovered1"><a name="line473"></a> 473 	@name = nil
+</span><span class="uncovered0"><a name="line474"></a> 474       end
+</span><span class="uncovered1"><a name="line475"></a> 475       @buf = buf
+</span><span class="uncovered0"><a name="line476"></a> 476     end
+</span><span class="inferred1"><a name="line477"></a> 477 
+</span><span class="inferred0"><a name="line478"></a> 478     # The name of the unknown thing.
+</span><span class="inferred1"><a name="line479"></a> 479     #
+</span><span class="inferred0"><a name="line480"></a> 480     # Class name for unknown objects; variable name for unknown
+</span><span class="inferred1"><a name="line481"></a> 481     # constants.
+</span><span class="marked0"><a name="line482"></a> 482     attr_reader :name
+</span><span class="inferred1"><a name="line483"></a> 483 
+</span><span class="inferred0"><a name="line484"></a> 484     # Buffer contained the marshalled, unknown object.
+</span><span class="marked1"><a name="line485"></a> 485     attr_reader :buf
+</span><span class="inferred0"><a name="line486"></a> 486 
+</span><span class="marked1"><a name="line487"></a> 487     def self._load(s) # :nodoc:
+</span><span class="uncovered0"><a name="line488"></a> 488       begin
+</span><span class="uncovered1"><a name="line489"></a> 489 	Marshal::load(s)
+</span><span class="uncovered0"><a name="line490"></a> 490       rescue NameError, ArgumentError
+</span><span class="uncovered1"><a name="line491"></a> 491 	DRbUnknown.new($!, s)
+</span><span class="uncovered0"><a name="line492"></a> 492       end
+</span><span class="uncovered1"><a name="line493"></a> 493     end
+</span><span class="inferred0"><a name="line494"></a> 494 
+</span><span class="marked1"><a name="line495"></a> 495     def _dump(lv) # :nodoc:
+</span><span class="uncovered0"><a name="line496"></a> 496       @buf
+</span><span class="uncovered1"><a name="line497"></a> 497     end
+</span><span class="inferred0"><a name="line498"></a> 498 
+</span><span class="inferred1"><a name="line499"></a> 499     # Attempt to load the wrapped marshalled object again.
+</span><span class="inferred0"><a name="line500"></a> 500     #
+</span><span class="inferred1"><a name="line501"></a> 501     # If the class of the object is now known locally, the object
+</span><span class="inferred0"><a name="line502"></a> 502     # will be unmarshalled and returned.  Otherwise, a new 
+</span><span class="inferred1"><a name="line503"></a> 503     # but identical DRbUnknown object will be returned.
+</span><span class="marked0"><a name="line504"></a> 504     def reload
+</span><span class="uncovered1"><a name="line505"></a> 505       self.class._load(@buf)
+</span><span class="uncovered0"><a name="line506"></a> 506     end
+</span><span class="inferred1"><a name="line507"></a> 507 
+</span><span class="inferred0"><a name="line508"></a> 508     # Create a DRbUnknownError exception containing this object.
+</span><span class="marked1"><a name="line509"></a> 509     def exception
+</span><span class="uncovered0"><a name="line510"></a> 510       DRbUnknownError.new(self)
+</span><span class="uncovered1"><a name="line511"></a> 511     end
+</span><span class="uncovered0"><a name="line512"></a> 512   end
+</span><span class="inferred1"><a name="line513"></a> 513 
+</span><span class="marked0"><a name="line514"></a> 514   class DRbArray
+</span><span class="marked1"><a name="line515"></a> 515     def initialize(ary)
+</span><span class="uncovered0"><a name="line516"></a> 516       @ary = ary.collect { |obj| 
+</span><span class="uncovered1"><a name="line517"></a> 517 	if obj.kind_of? DRbUndumped
+</span><span class="uncovered0"><a name="line518"></a> 518 	  DRbObject.new(obj)
+</span><span class="uncovered1"><a name="line519"></a> 519 	else
+</span><span class="uncovered0"><a name="line520"></a> 520 	  begin
+</span><span class="uncovered1"><a name="line521"></a> 521 	    Marshal.dump(obj)
+</span><span class="uncovered0"><a name="line522"></a> 522 	    obj
+</span><span class="uncovered1"><a name="line523"></a> 523 	  rescue
+</span><span class="uncovered0"><a name="line524"></a> 524 	    DRbObject.new(obj)
+</span><span class="uncovered1"><a name="line525"></a> 525 	  end
+</span><span class="uncovered0"><a name="line526"></a> 526 	end
+</span><span class="uncovered1"><a name="line527"></a> 527       }
+</span><span class="uncovered0"><a name="line528"></a> 528     end
+</span><span class="inferred1"><a name="line529"></a> 529 
+</span><span class="marked0"><a name="line530"></a> 530     def self._load(s)
+</span><span class="uncovered1"><a name="line531"></a> 531       Marshal::load(s)
+</span><span class="uncovered0"><a name="line532"></a> 532     end
+</span><span class="inferred1"><a name="line533"></a> 533 
+</span><span class="marked0"><a name="line534"></a> 534     def _dump(lv)
+</span><span class="uncovered1"><a name="line535"></a> 535       Marshal.dump(@ary)
+</span><span class="uncovered0"><a name="line536"></a> 536     end
+</span><span class="uncovered1"><a name="line537"></a> 537   end
+</span><span class="inferred0"><a name="line538"></a> 538 
+</span><span class="inferred1"><a name="line539"></a> 539   # Handler for sending and receiving drb messages.
+</span><span class="inferred0"><a name="line540"></a> 540   #
+</span><span class="inferred1"><a name="line541"></a> 541   # This takes care of the low-level marshalling and unmarshalling
+</span><span class="inferred0"><a name="line542"></a> 542   # of drb requests and responses sent over the wire between server
+</span><span class="inferred1"><a name="line543"></a> 543   # and client.  This relieves the implementor of a new drb
+</span><span class="inferred0"><a name="line544"></a> 544   # protocol layer with having to deal with these details.
+</span><span class="inferred1"><a name="line545"></a> 545   #
+</span><span class="inferred0"><a name="line546"></a> 546   # The user does not have to directly deal with this object in
+</span><span class="inferred1"><a name="line547"></a> 547   # normal use.
+</span><span class="marked0"><a name="line548"></a> 548   class DRbMessage
+</span><span class="marked1"><a name="line549"></a> 549     def initialize(config) # :nodoc:
+</span><span class="uncovered0"><a name="line550"></a> 550       @load_limit = config[:load_limit]
+</span><span class="uncovered1"><a name="line551"></a> 551       @argc_limit = config[:argc_limit]
+</span><span class="uncovered0"><a name="line552"></a> 552     end
+</span><span class="inferred1"><a name="line553"></a> 553 
+</span><span class="marked0"><a name="line554"></a> 554     def dump(obj, error=false)  # :nodoc:
+</span><span class="uncovered1"><a name="line555"></a> 555       obj = make_proxy(obj, error) if obj.kind_of? DRbUndumped
+</span><span class="uncovered0"><a name="line556"></a> 556       begin
+</span><span class="uncovered1"><a name="line557"></a> 557 	str = Marshal::dump(obj)
+</span><span class="uncovered0"><a name="line558"></a> 558       rescue
+</span><span class="uncovered1"><a name="line559"></a> 559 	str = Marshal::dump(make_proxy(obj, error))
+</span><span class="uncovered0"><a name="line560"></a> 560       end
+</span><span class="uncovered1"><a name="line561"></a> 561       [str.size].pack('N') + str
+</span><span class="uncovered0"><a name="line562"></a> 562     end
+</span><span class="inferred1"><a name="line563"></a> 563 
+</span><span class="marked0"><a name="line564"></a> 564     def load(soc)  # :nodoc:
+</span><span class="uncovered1"><a name="line565"></a> 565       begin
+</span><span class="uncovered0"><a name="line566"></a> 566         sz = soc.read(4)	# sizeof (N)
+</span><span class="uncovered1"><a name="line567"></a> 567       rescue
+</span><span class="uncovered0"><a name="line568"></a> 568         raise(DRbConnError, $!.message, $!.backtrace)
+</span><span class="uncovered1"><a name="line569"></a> 569       end
+</span><span class="uncovered0"><a name="line570"></a> 570       raise(DRbConnError, 'connection closed') if sz.nil?
+</span><span class="uncovered1"><a name="line571"></a> 571       raise(DRbConnError, 'premature header') if sz.size &lt; 4
+</span><span class="uncovered0"><a name="line572"></a> 572       sz = sz.unpack('N')[0]
+</span><span class="uncovered1"><a name="line573"></a> 573       raise(DRbConnError, &quot;too large packet #{sz}&quot;) if @load_limit &lt; sz
+</span><span class="uncovered0"><a name="line574"></a> 574       begin
+</span><span class="uncovered1"><a name="line575"></a> 575         str = soc.read(sz)
+</span><span class="uncovered0"><a name="line576"></a> 576       rescue
+</span><span class="uncovered1"><a name="line577"></a> 577         raise(DRbConnError, $!.message, $!.backtrace)
+</span><span class="uncovered0"><a name="line578"></a> 578       end
+</span><span class="uncovered1"><a name="line579"></a> 579       raise(DRbConnError, 'connection closed') if str.nil?
+</span><span class="uncovered0"><a name="line580"></a> 580       raise(DRbConnError, 'premature marshal format(can\'t read)') if str.size &lt; sz
+</span><span class="uncovered1"><a name="line581"></a> 581       Thread.exclusive do
+</span><span class="uncovered0"><a name="line582"></a> 582         begin
+</span><span class="uncovered1"><a name="line583"></a> 583           save = Thread.current[:drb_untaint]
+</span><span class="uncovered0"><a name="line584"></a> 584           Thread.current[:drb_untaint] = []
+</span><span class="uncovered1"><a name="line585"></a> 585           Marshal::load(str)
+</span><span class="uncovered0"><a name="line586"></a> 586         rescue NameError, ArgumentError
+</span><span class="uncovered1"><a name="line587"></a> 587           DRbUnknown.new($!, str)
+</span><span class="uncovered0"><a name="line588"></a> 588         ensure
+</span><span class="uncovered1"><a name="line589"></a> 589           Thread.current[:drb_untaint].each do |x|
+</span><span class="uncovered0"><a name="line590"></a> 590             x.untaint
+</span><span class="uncovered1"><a name="line591"></a> 591           end
+</span><span class="uncovered0"><a name="line592"></a> 592           Thread.current[:drb_untaint] = save
+</span><span class="uncovered1"><a name="line593"></a> 593         end
+</span><span class="uncovered0"><a name="line594"></a> 594       end
+</span><span class="uncovered1"><a name="line595"></a> 595     end
+</span><span class="inferred0"><a name="line596"></a> 596 
+</span><span class="marked1"><a name="line597"></a> 597     def send_request(stream, ref, msg_id, arg, b) # :nodoc:
+</span><span class="uncovered0"><a name="line598"></a> 598       ary = []
+</span><span class="uncovered1"><a name="line599"></a> 599       ary.push(dump(ref.__drbref))
+</span><span class="uncovered0"><a name="line600"></a> 600       ary.push(dump(msg_id.id2name))
+</span><span class="uncovered1"><a name="line601"></a> 601       ary.push(dump(arg.length))
+</span><span class="uncovered0"><a name="line602"></a> 602       arg.each do |e|
+</span><span class="uncovered1"><a name="line603"></a> 603 	ary.push(dump(e))
+</span><span class="uncovered0"><a name="line604"></a> 604       end
+</span><span class="uncovered1"><a name="line605"></a> 605       ary.push(dump(b))
+</span><span class="uncovered0"><a name="line606"></a> 606       stream.write(ary.join(''))
+</span><span class="uncovered1"><a name="line607"></a> 607     rescue
+</span><span class="uncovered0"><a name="line608"></a> 608       raise(DRbConnError, $!.message, $!.backtrace)
+</span><span class="uncovered1"><a name="line609"></a> 609     end
+</span><span class="inferred0"><a name="line610"></a> 610     
+</span><span class="marked1"><a name="line611"></a> 611     def recv_request(stream) # :nodoc:
+</span><span class="uncovered0"><a name="line612"></a> 612       ref = load(stream)
+</span><span class="uncovered1"><a name="line613"></a> 613       ro = DRb.to_obj(ref)
+</span><span class="uncovered0"><a name="line614"></a> 614       msg = load(stream)
+</span><span class="uncovered1"><a name="line615"></a> 615       argc = load(stream)
+</span><span class="uncovered0"><a name="line616"></a> 616       raise ArgumentError, 'too many arguments' if @argc_limit &lt; argc
+</span><span class="uncovered1"><a name="line617"></a> 617       argv = Array.new(argc, nil)
+</span><span class="uncovered0"><a name="line618"></a> 618       argc.times do |n|
+</span><span class="uncovered1"><a name="line619"></a> 619 	argv[n] = load(stream)
+</span><span class="uncovered0"><a name="line620"></a> 620       end
+</span><span class="uncovered1"><a name="line621"></a> 621       block = load(stream)
+</span><span class="uncovered0"><a name="line622"></a> 622       return ro, msg, argv, block
+</span><span class="uncovered1"><a name="line623"></a> 623     end
+</span><span class="inferred0"><a name="line624"></a> 624 
+</span><span class="marked1"><a name="line625"></a> 625     def send_reply(stream, succ, result)  # :nodoc:
+</span><span class="uncovered0"><a name="line626"></a> 626       stream.write(dump(succ) + dump(result, !succ))
+</span><span class="uncovered1"><a name="line627"></a> 627     rescue
+</span><span class="uncovered0"><a name="line628"></a> 628       raise(DRbConnError, $!.message, $!.backtrace)
+</span><span class="uncovered1"><a name="line629"></a> 629     end
+</span><span class="inferred0"><a name="line630"></a> 630 
+</span><span class="marked1"><a name="line631"></a> 631     def recv_reply(stream)  # :nodoc:
+</span><span class="uncovered0"><a name="line632"></a> 632       succ = load(stream)
+</span><span class="uncovered1"><a name="line633"></a> 633       result = load(stream)
+</span><span class="uncovered0"><a name="line634"></a> 634       [succ, result]
+</span><span class="uncovered1"><a name="line635"></a> 635     end
+</span><span class="inferred0"><a name="line636"></a> 636 
+</span><span class="marked1"><a name="line637"></a> 637     private
+</span><span class="marked0"><a name="line638"></a> 638     def make_proxy(obj, error=false)
+</span><span class="uncovered1"><a name="line639"></a> 639       if error
+</span><span class="uncovered0"><a name="line640"></a> 640         DRbRemoteError.new(obj)
+</span><span class="uncovered1"><a name="line641"></a> 641       else
+</span><span class="uncovered0"><a name="line642"></a> 642         DRbObject.new(obj)
+</span><span class="uncovered1"><a name="line643"></a> 643       end
+</span><span class="uncovered0"><a name="line644"></a> 644     end
+</span><span class="uncovered1"><a name="line645"></a> 645   end
+</span><span class="inferred0"><a name="line646"></a> 646 
+</span><span class="inferred1"><a name="line647"></a> 647   # Module managing the underlying network protocol(s) used by drb.
+</span><span class="inferred0"><a name="line648"></a> 648   #
+</span><span class="inferred1"><a name="line649"></a> 649   # By default, drb uses the DRbTCPSocket protocol.  Other protocols
+</span><span class="inferred0"><a name="line650"></a> 650   # can be defined.  A protocol must define the following class methods:
+</span><span class="inferred1"><a name="line651"></a> 651   #
+</span><span class="inferred0"><a name="line652"></a> 652   #   [open(uri, config)] Open a client connection to the server at +uri+,
+</span><span class="inferred1"><a name="line653"></a> 653   #                       using configuration +config+.  Return a protocol
+</span><span class="inferred0"><a name="line654"></a> 654   #                       instance for this connection.
+</span><span class="inferred1"><a name="line655"></a> 655   #   [open_server(uri, config)] Open a server listening at +uri+,
+</span><span class="inferred0"><a name="line656"></a> 656   #                              using configuration +config+.  Return a
+</span><span class="inferred1"><a name="line657"></a> 657   #                              protocol instance for this listener.
+</span><span class="inferred0"><a name="line658"></a> 658   #   [uri_option(uri, config)] Take a URI, possibly containing an option
+</span><span class="inferred1"><a name="line659"></a> 659   #                             component (e.g. a trailing '?param=val'), 
+</span><span class="inferred0"><a name="line660"></a> 660   #                             and return a [uri, option] tuple.
+</span><span class="inferred1"><a name="line661"></a> 661   #
+</span><span class="inferred0"><a name="line662"></a> 662   # All of these methods should raise a DRbBadScheme error if the URI 
+</span><span class="inferred1"><a name="line663"></a> 663   # does not identify the protocol they support (e.g. &quot;druby:&quot; for
+</span><span class="inferred0"><a name="line664"></a> 664   # the standard Ruby protocol).  This is how the DRbProtocol module,
+</span><span class="inferred1"><a name="line665"></a> 665   # given a URI, determines which protocol implementation serves that
+</span><span class="inferred0"><a name="line666"></a> 666   # protocol.
+</span><span class="inferred1"><a name="line667"></a> 667   #
+</span><span class="inferred0"><a name="line668"></a> 668   # The protocol instance returned by #open_server must have the
+</span><span class="inferred1"><a name="line669"></a> 669   # following methods:
+</span><span class="inferred0"><a name="line670"></a> 670   #
+</span><span class="inferred1"><a name="line671"></a> 671   # [accept] Accept a new connection to the server.  Returns a protocol
+</span><span class="inferred0"><a name="line672"></a> 672   #          instance capable of communicating with the client.
+</span><span class="inferred1"><a name="line673"></a> 673   # [close] Close the server connection.
+</span><span class="inferred0"><a name="line674"></a> 674   # [uri] Get the URI for this server.
+</span><span class="inferred1"><a name="line675"></a> 675   #
+</span><span class="inferred0"><a name="line676"></a> 676   # The protocol instance returned by #open must have the following methods:
+</span><span class="inferred1"><a name="line677"></a> 677   #
+</span><span class="inferred0"><a name="line678"></a> 678   # [send_request (ref, msg_id, arg, b)] 
+</span><span class="inferred1"><a name="line679"></a> 679   #      Send a request to +ref+ with the given message id and arguments.
+</span><span class="inferred0"><a name="line680"></a> 680   #      This is most easily implemented by calling DRbMessage.send_request,
+</span><span class="inferred1"><a name="line681"></a> 681   #      providing a stream that sits on top of the current protocol.
+</span><span class="inferred0"><a name="line682"></a> 682   # [recv_reply]
+</span><span class="inferred1"><a name="line683"></a> 683   #      Receive a reply from the server and return it as a [success-boolean,
+</span><span class="inferred0"><a name="line684"></a> 684   #      reply-value] pair.  This is most easily implemented by calling
+</span><span class="inferred1"><a name="line685"></a> 685   #      DRb.recv_reply, providing a stream that sits on top of the 
+</span><span class="inferred0"><a name="line686"></a> 686   #      current protocol.
+</span><span class="inferred1"><a name="line687"></a> 687   # [alive?]
+</span><span class="inferred0"><a name="line688"></a> 688   #      Is this connection still alive?
+</span><span class="inferred1"><a name="line689"></a> 689   # [close]
+</span><span class="inferred0"><a name="line690"></a> 690   #      Close this connection.
+</span><span class="inferred1"><a name="line691"></a> 691   #
+</span><span class="inferred0"><a name="line692"></a> 692   # The protocol instance returned by #open_server().accept() must have
+</span><span class="inferred1"><a name="line693"></a> 693   # the following methods:
+</span><span class="inferred0"><a name="line694"></a> 694   #
+</span><span class="inferred1"><a name="line695"></a> 695   # [recv_request]
+</span><span class="inferred0"><a name="line696"></a> 696   #     Receive a request from the client and return a [object, message,
+</span><span class="inferred1"><a name="line697"></a> 697   #     args, block] tuple.  This is most easily implemented by calling
+</span><span class="inferred0"><a name="line698"></a> 698   #     DRbMessage.recv_request, providing a stream that sits on top of
+</span><span class="inferred1"><a name="line699"></a> 699   #     the current protocol.
+</span><span class="inferred0"><a name="line700"></a> 700   # [send_reply(succ, result)]
+</span><span class="inferred1"><a name="line701"></a> 701   #     Send a reply to the client.  This is most easily implemented
+</span><span class="inferred0"><a name="line702"></a> 702   #     by calling DRbMessage.send_reply, providing a stream that sits
+</span><span class="inferred1"><a name="line703"></a> 703   #     on top of the current protocol.
+</span><span class="inferred0"><a name="line704"></a> 704   # [close]
+</span><span class="inferred1"><a name="line705"></a> 705   #     Close this connection.
+</span><span class="inferred0"><a name="line706"></a> 706   #
+</span><span class="inferred1"><a name="line707"></a> 707   # A new protocol is registered with the DRbProtocol module using
+</span><span class="inferred0"><a name="line708"></a> 708   # the add_protocol method.
+</span><span class="inferred1"><a name="line709"></a> 709   #
+</span><span class="inferred0"><a name="line710"></a> 710   # For examples of other protocols, see DRbUNIXSocket in drb/unix.rb,
+</span><span class="inferred1"><a name="line711"></a> 711   # and HTTP0 in sample/http0.rb and sample/http0serv.rb in the full
+</span><span class="inferred0"><a name="line712"></a> 712   # drb distribution.
+</span><span class="marked1"><a name="line713"></a> 713   module DRbProtocol
+</span><span class="inferred0"><a name="line714"></a> 714 
+</span><span class="inferred1"><a name="line715"></a> 715     # Add a new protocol to the DRbProtocol module.
+</span><span class="marked0"><a name="line716"></a> 716     def add_protocol(prot)
+</span><span class="uncovered1"><a name="line717"></a> 717       @protocol.push(prot)
+</span><span class="uncovered0"><a name="line718"></a> 718     end
+</span><span class="marked1"><a name="line719"></a> 719     module_function :add_protocol
+</span><span class="inferred0"><a name="line720"></a> 720 
+</span><span class="inferred1"><a name="line721"></a> 721     # Open a client connection to +uri+ with the configuration +config+.
+</span><span class="inferred0"><a name="line722"></a> 722     #
+</span><span class="inferred1"><a name="line723"></a> 723     # The DRbProtocol module asks each registered protocol in turn to
+</span><span class="inferred0"><a name="line724"></a> 724     # try to open the URI.  Each protocol signals that it does not handle that
+</span><span class="inferred1"><a name="line725"></a> 725     # URI by raising a DRbBadScheme error.  If no protocol recognises the
+</span><span class="inferred0"><a name="line726"></a> 726     # URI, then a DRbBadURI error is raised.  If a protocol accepts the
+</span><span class="inferred1"><a name="line727"></a> 727     # URI, but an error occurs in opening it, a DRbConnError is raised.
+</span><span class="marked0"><a name="line728"></a> 728     def open(uri, config, first=true) 
+</span><span class="uncovered1"><a name="line729"></a> 729       @protocol.each do |prot|
+</span><span class="uncovered0"><a name="line730"></a> 730 	begin
+</span><span class="uncovered1"><a name="line731"></a> 731 	  return prot.open(uri, config)
+</span><span class="uncovered0"><a name="line732"></a> 732 	rescue DRbBadScheme
+</span><span class="uncovered1"><a name="line733"></a> 733 	rescue DRbConnError
+</span><span class="uncovered0"><a name="line734"></a> 734 	  raise($!)
+</span><span class="uncovered1"><a name="line735"></a> 735 	rescue
+</span><span class="uncovered0"><a name="line736"></a> 736 	  raise(DRbConnError, &quot;#{uri} - #{$!.inspect}&quot;)
+</span><span class="uncovered1"><a name="line737"></a> 737 	end
+</span><span class="uncovered0"><a name="line738"></a> 738       end
+</span><span class="uncovered1"><a name="line739"></a> 739       if first &amp;&amp; (config[:auto_load] != false)
+</span><span class="uncovered0"><a name="line740"></a> 740 	auto_load(uri, config)
+</span><span class="uncovered1"><a name="line741"></a> 741 	return open(uri, config, false)
+</span><span class="uncovered0"><a name="line742"></a> 742       end
+</span><span class="uncovered1"><a name="line743"></a> 743       raise DRbBadURI, 'can\'t parse uri:' + uri
+</span><span class="uncovered0"><a name="line744"></a> 744     end
+</span><span class="marked1"><a name="line745"></a> 745     module_function :open
+</span><span class="inferred0"><a name="line746"></a> 746 
+</span><span class="inferred1"><a name="line747"></a> 747     # Open a server listening for connections at +uri+ with 
+</span><span class="inferred0"><a name="line748"></a> 748     # configuration +config+.
+</span><span class="inferred1"><a name="line749"></a> 749     #
+</span><span class="inferred0"><a name="line750"></a> 750     # The DRbProtocol module asks each registered protocol in turn to
+</span><span class="inferred1"><a name="line751"></a> 751     # try to open a server at the URI.  Each protocol signals that it does 
+</span><span class="inferred0"><a name="line752"></a> 752     # not handle that URI by raising a DRbBadScheme error.  If no protocol 
+</span><span class="inferred1"><a name="line753"></a> 753     # recognises the URI, then a DRbBadURI error is raised.  If a protocol 
+</span><span class="inferred0"><a name="line754"></a> 754     # accepts the URI, but an error occurs in opening it, the underlying 
+</span><span class="inferred1"><a name="line755"></a> 755     # error is passed on to the caller.
+</span><span class="marked0"><a name="line756"></a> 756     def open_server(uri, config, first=true)
+</span><span class="uncovered1"><a name="line757"></a> 757       @protocol.each do |prot|
+</span><span class="uncovered0"><a name="line758"></a> 758 	begin
+</span><span class="uncovered1"><a name="line759"></a> 759 	  return prot.open_server(uri, config)
+</span><span class="uncovered0"><a name="line760"></a> 760 	rescue DRbBadScheme
+</span><span class="uncovered1"><a name="line761"></a> 761 	end
+</span><span class="uncovered0"><a name="line762"></a> 762       end
+</span><span class="uncovered1"><a name="line763"></a> 763       if first &amp;&amp; (config[:auto_load] != false)
+</span><span class="uncovered0"><a name="line764"></a> 764 	auto_load(uri, config)
+</span><span class="uncovered1"><a name="line765"></a> 765 	return open_server(uri, config, false)
+</span><span class="uncovered0"><a name="line766"></a> 766       end
+</span><span class="uncovered1"><a name="line767"></a> 767       raise DRbBadURI, 'can\'t parse uri:' + uri
+</span><span class="uncovered0"><a name="line768"></a> 768     end
+</span><span class="marked1"><a name="line769"></a> 769     module_function :open_server
+</span><span class="inferred0"><a name="line770"></a> 770 
+</span><span class="inferred1"><a name="line771"></a> 771     # Parse +uri+ into a [uri, option] pair.
+</span><span class="inferred0"><a name="line772"></a> 772     #
+</span><span class="inferred1"><a name="line773"></a> 773     # The DRbProtocol module asks each registered protocol in turn to
+</span><span class="inferred0"><a name="line774"></a> 774     # try to parse the URI.  Each protocol signals that it does not handle that
+</span><span class="inferred1"><a name="line775"></a> 775     # URI by raising a DRbBadScheme error.  If no protocol recognises the
+</span><span class="inferred0"><a name="line776"></a> 776     # URI, then a DRbBadURI error is raised.  
+</span><span class="marked1"><a name="line777"></a> 777     def uri_option(uri, config, first=true)
+</span><span class="uncovered0"><a name="line778"></a> 778       @protocol.each do |prot|
+</span><span class="uncovered1"><a name="line779"></a> 779 	begin
+</span><span class="uncovered0"><a name="line780"></a> 780 	  uri, opt = prot.uri_option(uri, config)
+</span><span class="uncovered1"><a name="line781"></a> 781 	  # opt = nil if opt == ''
+</span><span class="uncovered0"><a name="line782"></a> 782 	  return uri, opt
+</span><span class="uncovered1"><a name="line783"></a> 783 	rescue DRbBadScheme
+</span><span class="uncovered0"><a name="line784"></a> 784 	end
+</span><span class="uncovered1"><a name="line785"></a> 785       end
+</span><span class="uncovered0"><a name="line786"></a> 786       if first &amp;&amp; (config[:auto_load] != false)
+</span><span class="uncovered1"><a name="line787"></a> 787 	auto_load(uri, config)
+</span><span class="uncovered0"><a name="line788"></a> 788         return uri_option(uri, config, false)
+</span><span class="uncovered1"><a name="line789"></a> 789       end
+</span><span class="uncovered0"><a name="line790"></a> 790       raise DRbBadURI, 'can\'t parse uri:' + uri
+</span><span class="uncovered1"><a name="line791"></a> 791     end
+</span><span class="marked0"><a name="line792"></a> 792     module_function :uri_option
+</span><span class="inferred1"><a name="line793"></a> 793 
+</span><span class="marked0"><a name="line794"></a> 794     def auto_load(uri, config)  # :nodoc:
+</span><span class="uncovered1"><a name="line795"></a> 795       if uri =~ /^drb([a-z0-9]+):/
+</span><span class="uncovered0"><a name="line796"></a> 796 	require(&quot;drb/#{$1}&quot;) rescue nil
+</span><span class="uncovered1"><a name="line797"></a> 797       end
+</span><span class="uncovered0"><a name="line798"></a> 798     end
+</span><span class="marked1"><a name="line799"></a> 799     module_function :auto_load
+</span><span class="inferred0"><a name="line800"></a> 800   end
+</span><span class="inferred1"><a name="line801"></a> 801 
+</span><span class="inferred0"><a name="line802"></a> 802   # The default drb protocol.
+</span><span class="inferred1"><a name="line803"></a> 803   #
+</span><span class="inferred0"><a name="line804"></a> 804   # Communicates over a TCP socket.
+</span><span class="marked1"><a name="line805"></a> 805   class DRbTCPSocket
+</span><span class="marked0"><a name="line806"></a> 806     private
+</span><span class="marked1"><a name="line807"></a> 807     def self.parse_uri(uri)
+</span><span class="uncovered0"><a name="line808"></a> 808       if uri =~ /^druby:\/\/(.*?):(\d+)(\?(.*))?$/
+</span><span class="uncovered1"><a name="line809"></a> 809 	host = $1
+</span><span class="uncovered0"><a name="line810"></a> 810 	port = $2.to_i
+</span><span class="uncovered1"><a name="line811"></a> 811 	option = $4
+</span><span class="uncovered0"><a name="line812"></a> 812 	[host, port, option]
+</span><span class="uncovered1"><a name="line813"></a> 813       else
+</span><span class="uncovered0"><a name="line814"></a> 814 	raise(DRbBadScheme, uri) unless uri =~ /^druby:/
+</span><span class="uncovered1"><a name="line815"></a> 815 	raise(DRbBadURI, 'can\'t parse uri:' + uri)
+</span><span class="uncovered0"><a name="line816"></a> 816       end
+</span><span class="uncovered1"><a name="line817"></a> 817     end
+</span><span class="inferred0"><a name="line818"></a> 818 
+</span><span class="marked1"><a name="line819"></a> 819     public
+</span><span class="inferred0"><a name="line820"></a> 820 
+</span><span class="inferred1"><a name="line821"></a> 821     # Open a client connection to +uri+ using configuration +config+.
+</span><span class="marked0"><a name="line822"></a> 822     def self.open(uri, config)
+</span><span class="uncovered1"><a name="line823"></a> 823       host, port, option = parse_uri(uri)
+</span><span class="uncovered0"><a name="line824"></a> 824       host.untaint
+</span><span class="uncovered1"><a name="line825"></a> 825       port.untaint
+</span><span class="uncovered0"><a name="line826"></a> 826       soc = TCPSocket.open(host, port)
+</span><span class="uncovered1"><a name="line827"></a> 827       self.new(uri, soc, config)
+</span><span class="uncovered0"><a name="line828"></a> 828     end
+</span><span class="inferred1"><a name="line829"></a> 829 
+</span><span class="marked0"><a name="line830"></a> 830     def self.getservername
+</span><span class="uncovered1"><a name="line831"></a> 831       host = Socket::gethostname
+</span><span class="uncovered0"><a name="line832"></a> 832       begin
+</span><span class="uncovered1"><a name="line833"></a> 833         Socket::gethostbyname(host)[0]
+</span><span class="uncovered0"><a name="line834"></a> 834       rescue
+</span><span class="uncovered1"><a name="line835"></a> 835         'localhost'
+</span><span class="uncovered0"><a name="line836"></a> 836       end
+</span><span class="uncovered1"><a name="line837"></a> 837     end
+</span><span class="inferred0"><a name="line838"></a> 838 
+</span><span class="marked1"><a name="line839"></a> 839     def self.open_server_inaddr_any(host, port)
+</span><span class="uncovered0"><a name="line840"></a> 840       infos = Socket::getaddrinfo(host, nil, 
+</span><span class="uncovered1"><a name="line841"></a> 841                                   Socket::AF_UNSPEC,
+</span><span class="uncovered0"><a name="line842"></a> 842                                   Socket::SOCK_STREAM, 
+</span><span class="uncovered1"><a name="line843"></a> 843                                   0,
+</span><span class="uncovered0"><a name="line844"></a> 844                                   Socket::AI_PASSIVE)
+</span><span class="uncovered1"><a name="line845"></a> 845       family = infos.collect { |af, *_| af }.uniq
+</span><span class="uncovered0"><a name="line846"></a> 846       case family
+</span><span class="uncovered1"><a name="line847"></a> 847       when ['AF_INET']
+</span><span class="uncovered0"><a name="line848"></a> 848         return TCPServer.open('0.0.0.0', port)
+</span><span class="uncovered1"><a name="line849"></a> 849       when ['AF_INET6']
+</span><span class="uncovered0"><a name="line850"></a> 850         return TCPServer.open('::', port)
+</span><span class="uncovered1"><a name="line851"></a> 851       else
+</span><span class="uncovered0"><a name="line852"></a> 852         return TCPServer.open(port)
+</span><span class="uncovered1"><a name="line853"></a> 853       end
+</span><span class="uncovered0"><a name="line854"></a> 854     end
+</span><span class="inferred1"><a name="line855"></a> 855 
+</span><span class="inferred0"><a name="line856"></a> 856     # Open a server listening for connections at +uri+ using 
+</span><span class="inferred1"><a name="line857"></a> 857     # configuration +config+.
+</span><span class="marked0"><a name="line858"></a> 858     def self.open_server(uri, config)
+</span><span class="uncovered1"><a name="line859"></a> 859       uri = 'druby://:0' unless uri
+</span><span class="uncovered0"><a name="line860"></a> 860       host, port, opt = parse_uri(uri)
+</span><span class="uncovered1"><a name="line861"></a> 861       if host.size == 0
+</span><span class="uncovered0"><a name="line862"></a> 862         host = getservername
+</span><span class="uncovered1"><a name="line863"></a> 863         soc = open_server_inaddr_any(host, port)
+</span><span class="uncovered0"><a name="line864"></a> 864       else
+</span><span class="uncovered1"><a name="line865"></a> 865 	soc = TCPServer.open(host, port)
+</span><span class="uncovered0"><a name="line866"></a> 866       end
+</span><span class="uncovered1"><a name="line867"></a> 867       port = soc.addr[1] if port == 0
+</span><span class="uncovered0"><a name="line868"></a> 868       uri = &quot;druby://#{host}:#{port}&quot;
+</span><span class="uncovered1"><a name="line869"></a> 869       self.new(uri, soc, config)
+</span><span class="uncovered0"><a name="line870"></a> 870     end
+</span><span class="inferred1"><a name="line871"></a> 871 
+</span><span class="inferred0"><a name="line872"></a> 872     # Parse +uri+ into a [uri, option] pair.
+</span><span class="marked1"><a name="line873"></a> 873     def self.uri_option(uri, config)
+</span><span class="uncovered0"><a name="line874"></a> 874       host, port, option = parse_uri(uri)
+</span><span class="uncovered1"><a name="line875"></a> 875       return &quot;druby://#{host}:#{port}&quot;, option
+</span><span class="uncovered0"><a name="line876"></a> 876     end
+</span><span class="inferred1"><a name="line877"></a> 877 
+</span><span class="inferred0"><a name="line878"></a> 878     # Create a new DRbTCPSocket instance.
+</span><span class="inferred1"><a name="line879"></a> 879     #
+</span><span class="inferred0"><a name="line880"></a> 880     # +uri+ is the URI we are connected to.
+</span><span class="inferred1"><a name="line881"></a> 881     # +soc+ is the tcp socket we are bound to.  +config+ is our
+</span><span class="inferred0"><a name="line882"></a> 882     # configuration.
+</span><span class="marked1"><a name="line883"></a> 883     def initialize(uri, soc, config={})
+</span><span class="uncovered0"><a name="line884"></a> 884       @uri = uri
+</span><span class="uncovered1"><a name="line885"></a> 885       @socket = soc
+</span><span class="uncovered0"><a name="line886"></a> 886       @config = config
+</span><span class="uncovered1"><a name="line887"></a> 887       @acl = config[:tcp_acl]
+</span><span class="uncovered0"><a name="line888"></a> 888       @msg = DRbMessage.new(config)
+</span><span class="uncovered1"><a name="line889"></a> 889       set_sockopt(@socket)
+</span><span class="uncovered0"><a name="line890"></a> 890     end
+</span><span class="inferred1"><a name="line891"></a> 891 
+</span><span class="inferred0"><a name="line892"></a> 892     # Get the URI that we are connected to.
+</span><span class="marked1"><a name="line893"></a> 893     attr_reader :uri
+</span><span class="inferred0"><a name="line894"></a> 894 
+</span><span class="inferred1"><a name="line895"></a> 895     # Get the address of our TCP peer (the other end of the socket
+</span><span class="inferred0"><a name="line896"></a> 896     # we are bound to.
+</span><span class="marked1"><a name="line897"></a> 897     def peeraddr
+</span><span class="uncovered0"><a name="line898"></a> 898       @socket.peeraddr
+</span><span class="uncovered1"><a name="line899"></a> 899     end
+</span><span class="inferred0"><a name="line900"></a> 900     
+</span><span class="inferred1"><a name="line901"></a> 901     # Get the socket.
+</span><span class="marked0"><a name="line902"></a> 902     def stream; @socket; end
+</span><span class="inferred1"><a name="line903"></a> 903 
+</span><span class="inferred0"><a name="line904"></a> 904     # On the client side, send a request to the server.
+</span><span class="marked1"><a name="line905"></a> 905     def send_request(ref, msg_id, arg, b)
+</span><span class="uncovered0"><a name="line906"></a> 906       @msg.send_request(stream, ref, msg_id, arg, b)
+</span><span class="uncovered1"><a name="line907"></a> 907     end
+</span><span class="inferred0"><a name="line908"></a> 908     
+</span><span class="inferred1"><a name="line909"></a> 909     # On the server side, receive a request from the client.
+</span><span class="marked0"><a name="line910"></a> 910     def recv_request
+</span><span class="uncovered1"><a name="line911"></a> 911       @msg.recv_request(stream)
+</span><span class="uncovered0"><a name="line912"></a> 912     end
+</span><span class="inferred1"><a name="line913"></a> 913 
+</span><span class="inferred0"><a name="line914"></a> 914     # On the server side, send a reply to the client.
+</span><span class="marked1"><a name="line915"></a> 915     def send_reply(succ, result)
+</span><span class="uncovered0"><a name="line916"></a> 916       @msg.send_reply(stream, succ, result)
+</span><span class="uncovered1"><a name="line917"></a> 917     end
+</span><span class="inferred0"><a name="line918"></a> 918 
+</span><span class="inferred1"><a name="line919"></a> 919     # On the client side, receive a reply from the server.
+</span><span class="marked0"><a name="line920"></a> 920     def recv_reply
+</span><span class="uncovered1"><a name="line921"></a> 921       @msg.recv_reply(stream)
+</span><span class="uncovered0"><a name="line922"></a> 922     end
+</span><span class="inferred1"><a name="line923"></a> 923 
+</span><span class="marked0"><a name="line924"></a> 924     public
+</span><span class="inferred1"><a name="line925"></a> 925 
+</span><span class="inferred0"><a name="line926"></a> 926     # Close the connection.
+</span><span class="inferred1"><a name="line927"></a> 927     #
+</span><span class="inferred0"><a name="line928"></a> 928     # If this is an instance returned by #open_server, then this stops
+</span><span class="inferred1"><a name="line929"></a> 929     # listening for new connections altogether.  If this is an instance
+</span><span class="inferred0"><a name="line930"></a> 930     # returned by #open or by #accept, then it closes this particular
+</span><span class="inferred1"><a name="line931"></a> 931     # client-server session.
+</span><span class="marked0"><a name="line932"></a> 932     def close
+</span><span class="uncovered1"><a name="line933"></a> 933       if @socket
+</span><span class="uncovered0"><a name="line934"></a> 934 	@socket.close
+</span><span class="uncovered1"><a name="line935"></a> 935 	@socket = nil
+</span><span class="uncovered0"><a name="line936"></a> 936       end
+</span><span class="uncovered1"><a name="line937"></a> 937     end
+</span><span class="inferred0"><a name="line938"></a> 938     
+</span><span class="inferred1"><a name="line939"></a> 939     # On the server side, for an instance returned by #open_server, 
+</span><span class="inferred0"><a name="line940"></a> 940     # accept a client connection and return a new instance to handle
+</span><span class="inferred1"><a name="line941"></a> 941     # the server's side of this client-server session.
+</span><span class="marked0"><a name="line942"></a> 942     def accept
+</span><span class="uncovered1"><a name="line943"></a> 943       while true
+</span><span class="uncovered0"><a name="line944"></a> 944 	s = @socket.accept
+</span><span class="uncovered1"><a name="line945"></a> 945 	break if (@acl ? @acl.allow_socket?(s) : true) 
+</span><span class="uncovered0"><a name="line946"></a> 946 	s.close
+</span><span class="uncovered1"><a name="line947"></a> 947       end
+</span><span class="uncovered0"><a name="line948"></a> 948       self.class.new(nil, s, @config)
+</span><span class="uncovered1"><a name="line949"></a> 949     end
+</span><span class="inferred0"><a name="line950"></a> 950 
+</span><span class="inferred1"><a name="line951"></a> 951     # Check to see if this connection is alive.
+</span><span class="marked0"><a name="line952"></a> 952     def alive?
+</span><span class="uncovered1"><a name="line953"></a> 953       return false unless @socket
+</span><span class="uncovered0"><a name="line954"></a> 954       if IO.select([@socket], nil, nil, 0)
+</span><span class="uncovered1"><a name="line955"></a> 955 	close
+</span><span class="uncovered0"><a name="line956"></a> 956 	return false
+</span><span class="uncovered1"><a name="line957"></a> 957       end
+</span><span class="uncovered0"><a name="line958"></a> 958       true
+</span><span class="uncovered1"><a name="line959"></a> 959     end
+</span><span class="inferred0"><a name="line960"></a> 960 
+</span><span class="marked1"><a name="line961"></a> 961     def set_sockopt(soc) # :nodoc:
+</span><span class="uncovered0"><a name="line962"></a> 962       soc.setsockopt(Socket::IPPROTO_TCP, Socket::TCP_NODELAY, 1)
+</span><span class="uncovered1"><a name="line963"></a> 963       soc.fcntl(Fcntl::F_SETFD, Fcntl::FD_CLOEXEC) if defined? Fcntl::FD_CLOEXEC
+</span><span class="uncovered0"><a name="line964"></a> 964     end
+</span><span class="uncovered1"><a name="line965"></a> 965   end
+</span><span class="inferred0"><a name="line966"></a> 966 
+</span><span class="marked1"><a name="line967"></a> 967   module DRbProtocol
+</span><span class="marked0"><a name="line968"></a> 968     @protocol = [DRbTCPSocket] # default
+</span><span class="inferred1"><a name="line969"></a> 969   end
+</span><span class="inferred0"><a name="line970"></a> 970 
+</span><span class="marked1"><a name="line971"></a> 971   class DRbURIOption  # :nodoc:  I don't understand the purpose of this class...
+</span><span class="marked0"><a name="line972"></a> 972     def initialize(option)
+</span><span class="uncovered1"><a name="line973"></a> 973       @option = option.to_s
+</span><span class="uncovered0"><a name="line974"></a> 974     end
+</span><span class="marked1"><a name="line975"></a> 975     attr :option
+</span><span class="marked0"><a name="line976"></a> 976     def to_s; @option; end
+</span><span class="inferred1"><a name="line977"></a> 977     
+</span><span class="marked0"><a name="line978"></a> 978     def ==(other)
+</span><span class="uncovered1"><a name="line979"></a> 979       return false unless DRbURIOption === other
+</span><span class="uncovered0"><a name="line980"></a> 980       @option == other.option
+</span><span class="uncovered1"><a name="line981"></a> 981     end
+</span><span class="inferred0"><a name="line982"></a> 982     
+</span><span class="marked1"><a name="line983"></a> 983     def hash
+</span><span class="uncovered0"><a name="line984"></a> 984       @option.hash
+</span><span class="uncovered1"><a name="line985"></a> 985     end
+</span><span class="inferred0"><a name="line986"></a> 986     
+</span><span class="marked1"><a name="line987"></a> 987     alias eql? ==
+</span><span class="inferred0"><a name="line988"></a> 988   end
+</span><span class="inferred1"><a name="line989"></a> 989 
+</span><span class="inferred0"><a name="line990"></a> 990   # Object wrapping a reference to a remote drb object.
+</span><span class="inferred1"><a name="line991"></a> 991   #
+</span><span class="inferred0"><a name="line992"></a> 992   # Method calls on this object are relayed to the remote
+</span><span class="inferred1"><a name="line993"></a> 993   # object that this object is a stub for.
+</span><span class="marked0"><a name="line994"></a> 994   class DRbObject
+</span><span class="inferred1"><a name="line995"></a> 995 
+</span><span class="inferred0"><a name="line996"></a> 996     # Unmarshall a marshalled DRbObject.
+</span><span class="inferred1"><a name="line997"></a> 997     #
+</span><span class="inferred0"><a name="line998"></a> 998     # If the referenced object is located within the local server, then
+</span><span class="inferred1"><a name="line999"></a> 999     # the object itself is returned.  Otherwise, a new DRbObject is
+</span><span class="inferred0"><a name="line1000"></a>1000     # created to act as a stub for the remote referenced object.
+</span><span class="marked1"><a name="line1001"></a>1001     def self._load(s)
+</span><span class="uncovered0"><a name="line1002"></a>1002       uri, ref = Marshal.load(s)
+</span><span class="uncovered1"><a name="line1003"></a>1003       
+</span><span class="uncovered0"><a name="line1004"></a>1004       if DRb.here?(uri)
+</span><span class="uncovered1"><a name="line1005"></a>1005 	obj = DRb.to_obj(ref)
+</span><span class="uncovered0"><a name="line1006"></a>1006         if ((! obj.tainted?) &amp;&amp; Thread.current[:drb_untaint])
+</span><span class="uncovered1"><a name="line1007"></a>1007           Thread.current[:drb_untaint].push(obj)
+</span><span class="uncovered0"><a name="line1008"></a>1008         end
+</span><span class="uncovered1"><a name="line1009"></a>1009         return obj
+</span><span class="uncovered0"><a name="line1010"></a>1010       end
+</span><span class="uncovered1"><a name="line1011"></a>1011 
+</span><span class="uncovered0"><a name="line1012"></a>1012       self.new_with(uri, ref)
+</span><span class="uncovered1"><a name="line1013"></a>1013     end
+</span><span class="inferred0"><a name="line1014"></a>1014 
+</span><span class="marked1"><a name="line1015"></a>1015     def self.new_with(uri, ref)
+</span><span class="uncovered0"><a name="line1016"></a>1016       it = self.allocate
+</span><span class="uncovered1"><a name="line1017"></a>1017       it.instance_variable_set('@uri', uri)
+</span><span class="uncovered0"><a name="line1018"></a>1018       it.instance_variable_set('@ref', ref)
+</span><span class="uncovered1"><a name="line1019"></a>1019       it
+</span><span class="uncovered0"><a name="line1020"></a>1020     end
+</span><span class="inferred1"><a name="line1021"></a>1021 
+</span><span class="inferred0"><a name="line1022"></a>1022     # Create a new DRbObject from a URI alone.
+</span><span class="marked1"><a name="line1023"></a>1023     def self.new_with_uri(uri)
+</span><span class="uncovered0"><a name="line1024"></a>1024       self.new(nil, uri)
+</span><span class="uncovered1"><a name="line1025"></a>1025     end
+</span><span class="inferred0"><a name="line1026"></a>1026 
+</span><span class="inferred1"><a name="line1027"></a>1027     # Marshall this object.
+</span><span class="inferred0"><a name="line1028"></a>1028     #
+</span><span class="inferred1"><a name="line1029"></a>1029     # The URI and ref of the object are marshalled.
+</span><span class="marked0"><a name="line1030"></a>1030     def _dump(lv)
+</span><span class="uncovered1"><a name="line1031"></a>1031       Marshal.dump([@uri, @ref])
+</span><span class="uncovered0"><a name="line1032"></a>1032     end
+</span><span class="inferred1"><a name="line1033"></a>1033 
+</span><span class="inferred0"><a name="line1034"></a>1034     # Create a new remote object stub.
+</span><span class="inferred1"><a name="line1035"></a>1035     #
+</span><span class="inferred0"><a name="line1036"></a>1036     # +obj+ is the (local) object we want to create a stub for.  Normally
+</span><span class="inferred1"><a name="line1037"></a>1037     # this is +nil+.  +uri+ is the URI of the remote object that this
+</span><span class="inferred0"><a name="line1038"></a>1038     # will be a stub for.
+</span><span class="marked1"><a name="line1039"></a>1039     def initialize(obj, uri=nil)
+</span><span class="uncovered0"><a name="line1040"></a>1040       @uri = nil
+</span><span class="uncovered1"><a name="line1041"></a>1041       @ref = nil
+</span><span class="uncovered0"><a name="line1042"></a>1042       if obj.nil?
+</span><span class="uncovered1"><a name="line1043"></a>1043 	return if uri.nil?
+</span><span class="uncovered0"><a name="line1044"></a>1044 	@uri, option = DRbProtocol.uri_option(uri, DRb.config)
+</span><span class="uncovered1"><a name="line1045"></a>1045 	@ref = DRbURIOption.new(option) unless option.nil?
+</span><span class="uncovered0"><a name="line1046"></a>1046       else
+</span><span class="uncovered1"><a name="line1047"></a>1047 	@uri = uri ? uri : (DRb.uri rescue nil)
+</span><span class="uncovered0"><a name="line1048"></a>1048 	@ref = obj ? DRb.to_id(obj) : nil
+</span><span class="uncovered1"><a name="line1049"></a>1049       end
+</span><span class="uncovered0"><a name="line1050"></a>1050     end
+</span><span class="inferred1"><a name="line1051"></a>1051 
+</span><span class="inferred0"><a name="line1052"></a>1052     # Get the URI of the remote object.
+</span><span class="marked1"><a name="line1053"></a>1053     def __drburi 
+</span><span class="uncovered0"><a name="line1054"></a>1054       @uri
+</span><span class="uncovered1"><a name="line1055"></a>1055     end
+</span><span class="inferred0"><a name="line1056"></a>1056 
+</span><span class="inferred1"><a name="line1057"></a>1057     # Get the reference of the object, if local.
+</span><span class="marked0"><a name="line1058"></a>1058     def __drbref
+</span><span class="uncovered1"><a name="line1059"></a>1059       @ref
+</span><span class="uncovered0"><a name="line1060"></a>1060     end
+</span><span class="inferred1"><a name="line1061"></a>1061 
+</span><span class="marked0"><a name="line1062"></a>1062     undef :to_s
+</span><span class="marked1"><a name="line1063"></a>1063     undef :to_a if respond_to?(:to_a)
+</span><span class="inferred0"><a name="line1064"></a>1064 
+</span><span class="marked1"><a name="line1065"></a>1065     def respond_to?(msg_id, priv=false)
+</span><span class="uncovered0"><a name="line1066"></a>1066       case msg_id
+</span><span class="uncovered1"><a name="line1067"></a>1067       when :_dump
+</span><span class="uncovered0"><a name="line1068"></a>1068         true
+</span><span class="uncovered1"><a name="line1069"></a>1069       when :marshal_dump
+</span><span class="uncovered0"><a name="line1070"></a>1070         false
+</span><span class="uncovered1"><a name="line1071"></a>1071       else
+</span><span class="uncovered0"><a name="line1072"></a>1072         method_missing(:respond_to?, msg_id, priv)
+</span><span class="uncovered1"><a name="line1073"></a>1073       end
+</span><span class="uncovered0"><a name="line1074"></a>1074     end
+</span><span class="inferred1"><a name="line1075"></a>1075 
+</span><span class="inferred0"><a name="line1076"></a>1076     # Routes method calls to the referenced object.
+</span><span class="marked1"><a name="line1077"></a>1077     def method_missing(msg_id, *a, &amp;b)
+</span><span class="uncovered0"><a name="line1078"></a>1078       if DRb.here?(@uri)
+</span><span class="uncovered1"><a name="line1079"></a>1079 	obj = DRb.to_obj(@ref)
+</span><span class="uncovered0"><a name="line1080"></a>1080 	DRb.current_server.check_insecure_method(obj, msg_id)
+</span><span class="uncovered1"><a name="line1081"></a>1081 	return obj.__send__(msg_id, *a, &amp;b) 
+</span><span class="uncovered0"><a name="line1082"></a>1082       end
+</span><span class="uncovered1"><a name="line1083"></a>1083 
+</span><span class="uncovered0"><a name="line1084"></a>1084       succ, result = self.class.with_friend(@uri) do
+</span><span class="uncovered1"><a name="line1085"></a>1085         DRbConn.open(@uri) do |conn|
+</span><span class="uncovered0"><a name="line1086"></a>1086           conn.send_message(self, msg_id, a, b)
+</span><span class="uncovered1"><a name="line1087"></a>1087         end
+</span><span class="uncovered0"><a name="line1088"></a>1088       end
+</span><span class="uncovered1"><a name="line1089"></a>1089 
+</span><span class="uncovered0"><a name="line1090"></a>1090       if succ
+</span><span class="uncovered1"><a name="line1091"></a>1091         return result
+</span><span class="uncovered0"><a name="line1092"></a>1092       elsif DRbUnknown === result
+</span><span class="uncovered1"><a name="line1093"></a>1093         raise result
+</span><span class="uncovered0"><a name="line1094"></a>1094       else
+</span><span class="uncovered1"><a name="line1095"></a>1095         bt = self.class.prepare_backtrace(@uri, result)
+</span><span class="uncovered0"><a name="line1096"></a>1096 	result.set_backtrace(bt + caller)
+</span><span class="uncovered1"><a name="line1097"></a>1097         raise result
+</span><span class="uncovered0"><a name="line1098"></a>1098       end
+</span><span class="uncovered1"><a name="line1099"></a>1099     end
+</span><span class="inferred0"><a name="line1100"></a>1100 
+</span><span class="marked1"><a name="line1101"></a>1101     def self.with_friend(uri)
+</span><span class="uncovered0"><a name="line1102"></a>1102       friend = DRb.fetch_server(uri)
+</span><span class="uncovered1"><a name="line1103"></a>1103       return yield() unless friend
+</span><span class="uncovered0"><a name="line1104"></a>1104       
+</span><span class="uncovered1"><a name="line1105"></a>1105       save = Thread.current['DRb']
+</span><span class="uncovered0"><a name="line1106"></a>1106       Thread.current['DRb'] = { 'server' =&gt; friend }
+</span><span class="uncovered1"><a name="line1107"></a>1107       return yield
+</span><span class="uncovered0"><a name="line1108"></a>1108     ensure
+</span><span class="uncovered1"><a name="line1109"></a>1109       Thread.current['DRb'] = save if friend
+</span><span class="uncovered0"><a name="line1110"></a>1110     end
+</span><span class="inferred1"><a name="line1111"></a>1111 
+</span><span class="marked0"><a name="line1112"></a>1112     def self.prepare_backtrace(uri, result)
+</span><span class="uncovered1"><a name="line1113"></a>1113       prefix = &quot;(#{uri}) &quot;
+</span><span class="uncovered0"><a name="line1114"></a>1114       bt = []
+</span><span class="uncovered1"><a name="line1115"></a>1115       result.backtrace.each do |x|
+</span><span class="uncovered0"><a name="line1116"></a>1116         break if /`__send__'$/ =~ x 
+</span><span class="uncovered1"><a name="line1117"></a>1117         if /^\(druby:\/\// =~ x
+</span><span class="uncovered0"><a name="line1118"></a>1118           bt.push(x)
+</span><span class="uncovered1"><a name="line1119"></a>1119         else
+</span><span class="uncovered0"><a name="line1120"></a>1120           bt.push(prefix + x)
+</span><span class="uncovered1"><a name="line1121"></a>1121         end
+</span><span class="uncovered0"><a name="line1122"></a>1122       end
+</span><span class="uncovered1"><a name="line1123"></a>1123       bt
+</span><span class="uncovered0"><a name="line1124"></a>1124     end
+</span><span class="inferred1"><a name="line1125"></a>1125 
+</span><span class="marked0"><a name="line1126"></a>1126     def pretty_print(q)   # :nodoc:
+</span><span class="uncovered1"><a name="line1127"></a>1127       q.pp_object(self)
+</span><span class="uncovered0"><a name="line1128"></a>1128     end
+</span><span class="inferred1"><a name="line1129"></a>1129 
+</span><span class="marked0"><a name="line1130"></a>1130     def pretty_print_cycle(q)   # :nodoc:
+</span><span class="uncovered1"><a name="line1131"></a>1131       q.object_address_group(self) {
+</span><span class="uncovered0"><a name="line1132"></a>1132         q.breakable
+</span><span class="uncovered1"><a name="line1133"></a>1133         q.text '...'
+</span><span class="uncovered0"><a name="line1134"></a>1134       }
+</span><span class="uncovered1"><a name="line1135"></a>1135     end
+</span><span class="uncovered0"><a name="line1136"></a>1136   end
+</span><span class="inferred1"><a name="line1137"></a>1137 
+</span><span class="inferred0"><a name="line1138"></a>1138   # Class handling the connection between a DRbObject and the
+</span><span class="inferred1"><a name="line1139"></a>1139   # server the real object lives on.
+</span><span class="inferred0"><a name="line1140"></a>1140   #
+</span><span class="inferred1"><a name="line1141"></a>1141   # This class maintains a pool of connections, to reduce the
+</span><span class="inferred0"><a name="line1142"></a>1142   # overhead of starting and closing down connections for each
+</span><span class="inferred1"><a name="line1143"></a>1143   # method call.
+</span><span class="inferred0"><a name="line1144"></a>1144   #
+</span><span class="inferred1"><a name="line1145"></a>1145   # This class is used internally by DRbObject.  The user does
+</span><span class="inferred0"><a name="line1146"></a>1146   # not normally need to deal with it directly.
+</span><span class="marked1"><a name="line1147"></a>1147   class DRbConn
+</span><span class="marked0"><a name="line1148"></a>1148     POOL_SIZE = 16  # :nodoc:
+</span><span class="marked1"><a name="line1149"></a>1149     @mutex = Mutex.new
+</span><span class="marked0"><a name="line1150"></a>1150     @pool = []
+</span><span class="inferred1"><a name="line1151"></a>1151 
+</span><span class="marked0"><a name="line1152"></a>1152     def self.open(remote_uri)  # :nodoc:
+</span><span class="uncovered1"><a name="line1153"></a>1153       begin
+</span><span class="uncovered0"><a name="line1154"></a>1154 	conn = nil
+</span><span class="uncovered1"><a name="line1155"></a>1155 
+</span><span class="uncovered0"><a name="line1156"></a>1156 	@mutex.synchronize do
+</span><span class="uncovered1"><a name="line1157"></a>1157 	  #FIXME
+</span><span class="uncovered0"><a name="line1158"></a>1158 	  new_pool = []
+</span><span class="uncovered1"><a name="line1159"></a>1159 	  @pool.each do |c|
+</span><span class="uncovered0"><a name="line1160"></a>1160 	    if conn.nil? and c.uri == remote_uri
+</span><span class="uncovered1"><a name="line1161"></a>1161 	      conn = c if c.alive?
+</span><span class="uncovered0"><a name="line1162"></a>1162 	    else
+</span><span class="uncovered1"><a name="line1163"></a>1163 	      new_pool.push c
+</span><span class="uncovered0"><a name="line1164"></a>1164 	    end
+</span><span class="uncovered1"><a name="line1165"></a>1165 	  end
+</span><span class="uncovered0"><a name="line1166"></a>1166 	  @pool = new_pool
+</span><span class="uncovered1"><a name="line1167"></a>1167 	end
+</span><span class="uncovered0"><a name="line1168"></a>1168 
+</span><span class="uncovered1"><a name="line1169"></a>1169 	conn = self.new(remote_uri) unless conn
+</span><span class="uncovered0"><a name="line1170"></a>1170 	succ, result = yield(conn)
+</span><span class="uncovered1"><a name="line1171"></a>1171 	return succ, result
+</span><span class="uncovered0"><a name="line1172"></a>1172 
+</span><span class="uncovered1"><a name="line1173"></a>1173       ensure
+</span><span class="uncovered0"><a name="line1174"></a>1174 	if conn
+</span><span class="uncovered1"><a name="line1175"></a>1175 	  if succ
+</span><span class="uncovered0"><a name="line1176"></a>1176 	    @mutex.synchronize do
+</span><span class="uncovered1"><a name="line1177"></a>1177 	      @pool.unshift(conn)
+</span><span class="uncovered0"><a name="line1178"></a>1178 	      @pool.pop.close while @pool.size &gt; POOL_SIZE
+</span><span class="uncovered1"><a name="line1179"></a>1179 	    end
+</span><span class="uncovered0"><a name="line1180"></a>1180 	  else
+</span><span class="uncovered1"><a name="line1181"></a>1181 	    conn.close
+</span><span class="uncovered0"><a name="line1182"></a>1182 	  end
+</span><span class="uncovered1"><a name="line1183"></a>1183 	end
+</span><span class="uncovered0"><a name="line1184"></a>1184       end
+</span><span class="uncovered1"><a name="line1185"></a>1185     end
+</span><span class="inferred0"><a name="line1186"></a>1186 
+</span><span class="marked1"><a name="line1187"></a>1187     def initialize(remote_uri)  # :nodoc:
+</span><span class="uncovered0"><a name="line1188"></a>1188       @uri = remote_uri
+</span><span class="uncovered1"><a name="line1189"></a>1189       @protocol = DRbProtocol.open(remote_uri, DRb.config)
+</span><span class="uncovered0"><a name="line1190"></a>1190     end
+</span><span class="marked1"><a name="line1191"></a>1191     attr_reader :uri  # :nodoc:
+</span><span class="inferred0"><a name="line1192"></a>1192 
+</span><span class="marked1"><a name="line1193"></a>1193     def send_message(ref, msg_id, arg, block)  # :nodoc:
+</span><span class="uncovered0"><a name="line1194"></a>1194       @protocol.send_request(ref, msg_id, arg, block)
+</span><span class="uncovered1"><a name="line1195"></a>1195       @protocol.recv_reply
+</span><span class="uncovered0"><a name="line1196"></a>1196     end
+</span><span class="inferred1"><a name="line1197"></a>1197 
+</span><span class="marked0"><a name="line1198"></a>1198     def close  # :nodoc:
+</span><span class="uncovered1"><a name="line1199"></a>1199       @protocol.close
+</span><span class="uncovered0"><a name="line1200"></a>1200       @protocol = nil
+</span><span class="uncovered1"><a name="line1201"></a>1201     end
+</span><span class="inferred0"><a name="line1202"></a>1202 
+</span><span class="marked1"><a name="line1203"></a>1203     def alive?  # :nodoc:
+</span><span class="uncovered0"><a name="line1204"></a>1204       @protocol.alive?
+</span><span class="uncovered1"><a name="line1205"></a>1205     end
+</span><span class="uncovered0"><a name="line1206"></a>1206   end
+</span><span class="inferred1"><a name="line1207"></a>1207 
+</span><span class="inferred0"><a name="line1208"></a>1208   # Class representing a drb server instance.
+</span><span class="inferred1"><a name="line1209"></a>1209   #
+</span><span class="inferred0"><a name="line1210"></a>1210   # A DRbServer must be running in the local process before any incoming
+</span><span class="inferred1"><a name="line1211"></a>1211   # dRuby calls can be accepted, or any local objects can be passed as
+</span><span class="inferred0"><a name="line1212"></a>1212   # dRuby references to remote processes, even if those local objects are
+</span><span class="inferred1"><a name="line1213"></a>1213   # never actually called remotely. You do not need to start a DRbServer
+</span><span class="inferred0"><a name="line1214"></a>1214   # in the local process if you are only making outgoing dRuby calls
+</span><span class="inferred1"><a name="line1215"></a>1215   # passing marshalled parameters.
+</span><span class="inferred0"><a name="line1216"></a>1216   #
+</span><span class="inferred1"><a name="line1217"></a>1217   # Unless multiple servers are being used, the local DRbServer is normally
+</span><span class="inferred0"><a name="line1218"></a>1218   # started by calling DRb.start_service.
+</span><span class="marked1"><a name="line1219"></a>1219   class DRbServer
+</span><span class="marked0"><a name="line1220"></a>1220     @@acl = nil
+</span><span class="marked1"><a name="line1221"></a>1221     @@idconv = DRbIdConv.new
+</span><span class="marked0"><a name="line1222"></a>1222     @@secondary_server = nil
+</span><span class="marked1"><a name="line1223"></a>1223     @@argc_limit = 256
+</span><span class="marked0"><a name="line1224"></a>1224     @@load_limit = 256 * 102400
+</span><span class="marked1"><a name="line1225"></a>1225     @@verbose = false
+</span><span class="marked0"><a name="line1226"></a>1226     @@safe_level = 0
+</span><span class="inferred1"><a name="line1227"></a>1227 
+</span><span class="inferred0"><a name="line1228"></a>1228     # Set the default value for the :argc_limit option.
+</span><span class="inferred1"><a name="line1229"></a>1229     #
+</span><span class="inferred0"><a name="line1230"></a>1230     # See #new().  The initial default value is 256.
+</span><span class="marked1"><a name="line1231"></a>1231     def self.default_argc_limit(argc)
+</span><span class="uncovered0"><a name="line1232"></a>1232       @@argc_limit = argc
+</span><span class="uncovered1"><a name="line1233"></a>1233     end
+</span><span class="inferred0"><a name="line1234"></a>1234 
+</span><span class="inferred1"><a name="line1235"></a>1235     # Set the default value for the :load_limit option.
+</span><span class="inferred0"><a name="line1236"></a>1236     #
+</span><span class="inferred1"><a name="line1237"></a>1237     # See #new().  The initial default value is 25 MB.
+</span><span class="marked0"><a name="line1238"></a>1238     def self.default_load_limit(sz)
+</span><span class="uncovered1"><a name="line1239"></a>1239       @@load_limit = sz
+</span><span class="uncovered0"><a name="line1240"></a>1240     end
+</span><span class="inferred1"><a name="line1241"></a>1241 
+</span><span class="inferred0"><a name="line1242"></a>1242     # Set the default value for the :acl option.
+</span><span class="inferred1"><a name="line1243"></a>1243     #
+</span><span class="inferred0"><a name="line1244"></a>1244     # See #new().  The initial default value is nil.
+</span><span class="marked1"><a name="line1245"></a>1245     def self.default_acl(acl)
+</span><span class="uncovered0"><a name="line1246"></a>1246       @@acl = acl
+</span><span class="uncovered1"><a name="line1247"></a>1247     end
+</span><span class="inferred0"><a name="line1248"></a>1248 
+</span><span class="inferred1"><a name="line1249"></a>1249     # Set the default value for the :id_conv option.
+</span><span class="inferred0"><a name="line1250"></a>1250     #
+</span><span class="inferred1"><a name="line1251"></a>1251     # See #new().  The initial default value is a DRbIdConv instance.
+</span><span class="marked0"><a name="line1252"></a>1252     def self.default_id_conv(idconv)
+</span><span class="uncovered1"><a name="line1253"></a>1253       @@idconv = idconv
+</span><span class="uncovered0"><a name="line1254"></a>1254     end
+</span><span class="inferred1"><a name="line1255"></a>1255 
+</span><span class="marked0"><a name="line1256"></a>1256     def self.default_safe_level(level)
+</span><span class="uncovered1"><a name="line1257"></a>1257       @@safe_level = level
+</span><span class="uncovered0"><a name="line1258"></a>1258     end
+</span><span class="inferred1"><a name="line1259"></a>1259 
+</span><span class="inferred0"><a name="line1260"></a>1260     # Set the default value of the :verbose option.
+</span><span class="inferred1"><a name="line1261"></a>1261     #
+</span><span class="inferred0"><a name="line1262"></a>1262     # See #new().  The initial default value is false.
+</span><span class="marked1"><a name="line1263"></a>1263     def self.verbose=(on)
+</span><span class="uncovered0"><a name="line1264"></a>1264       @@verbose = on
+</span><span class="uncovered1"><a name="line1265"></a>1265     end
+</span><span class="inferred0"><a name="line1266"></a>1266     
+</span><span class="inferred1"><a name="line1267"></a>1267     # Get the default value of the :verbose option.
+</span><span class="marked0"><a name="line1268"></a>1268     def self.verbose
+</span><span class="uncovered1"><a name="line1269"></a>1269       @@verbose
+</span><span class="uncovered0"><a name="line1270"></a>1270     end
+</span><span class="inferred1"><a name="line1271"></a>1271 
+</span><span class="marked0"><a name="line1272"></a>1272     def self.make_config(hash={})  # :nodoc:
+</span><span class="uncovered1"><a name="line1273"></a>1273       default_config = { 
+</span><span class="uncovered0"><a name="line1274"></a>1274 	:idconv =&gt; @@idconv,
+</span><span class="uncovered1"><a name="line1275"></a>1275 	:verbose =&gt; @@verbose,
+</span><span class="uncovered0"><a name="line1276"></a>1276 	:tcp_acl =&gt; @@acl,
+</span><span class="uncovered1"><a name="line1277"></a>1277 	:load_limit =&gt; @@load_limit,
+</span><span class="uncovered0"><a name="line1278"></a>1278 	:argc_limit =&gt; @@argc_limit,
+</span><span class="uncovered1"><a name="line1279"></a>1279         :safe_level =&gt; @@safe_level
+</span><span class="uncovered0"><a name="line1280"></a>1280       }
+</span><span class="uncovered1"><a name="line1281"></a>1281       default_config.update(hash)
+</span><span class="uncovered0"><a name="line1282"></a>1282     end
+</span><span class="inferred1"><a name="line1283"></a>1283 
+</span><span class="inferred0"><a name="line1284"></a>1284     # Create a new DRbServer instance.
+</span><span class="inferred1"><a name="line1285"></a>1285     #
+</span><span class="inferred0"><a name="line1286"></a>1286     # +uri+ is the URI to bind to.  This is normally of the form
+</span><span class="inferred1"><a name="line1287"></a>1287     # 'druby://&lt;hostname&gt;:&lt;port&gt;' where &lt;hostname&gt; is a hostname of
+</span><span class="inferred0"><a name="line1288"></a>1288     # the local machine.  If nil, then the system's default hostname
+</span><span class="inferred1"><a name="line1289"></a>1289     # will be bound to, on a port selected by the system; these value
+</span><span class="inferred0"><a name="line1290"></a>1290     # can be retrieved from the +uri+ attribute.  'druby:' specifies
+</span><span class="inferred1"><a name="line1291"></a>1291     # the default dRuby transport protocol: another protocol, such
+</span><span class="inferred0"><a name="line1292"></a>1292     # as 'drbunix:', can be specified instead.
+</span><span class="inferred1"><a name="line1293"></a>1293     #
+</span><span class="inferred0"><a name="line1294"></a>1294     # +front+ is the front object for the server, that is, the object
+</span><span class="inferred1"><a name="line1295"></a>1295     # to which remote method calls on the server will be passed.  If
+</span><span class="inferred0"><a name="line1296"></a>1296     # nil, then the server will not accept remote method calls.
+</span><span class="inferred1"><a name="line1297"></a>1297     #
+</span><span class="inferred0"><a name="line1298"></a>1298     # If +config_or_acl+ is a hash, it is the configuration to
+</span><span class="inferred1"><a name="line1299"></a>1299     # use for this server.  The following options are recognised:
+</span><span class="inferred0"><a name="line1300"></a>1300     #
+</span><span class="inferred1"><a name="line1301"></a>1301     # :idconv :: an id-to-object conversion object.  This defaults
+</span><span class="inferred0"><a name="line1302"></a>1302     #            to an instance of the class DRb::DRbIdConv.
+</span><span class="inferred1"><a name="line1303"></a>1303     # :verbose :: if true, all unsuccessful remote calls on objects
+</span><span class="inferred0"><a name="line1304"></a>1304     #             in the server will be logged to $stdout. false
+</span><span class="inferred1"><a name="line1305"></a>1305     #             by default.
+</span><span class="inferred0"><a name="line1306"></a>1306     # :tcp_acl :: the access control list for this server.  See
+</span><span class="inferred1"><a name="line1307"></a>1307     #             the ACL class from the main dRuby distribution.
+</span><span class="inferred0"><a name="line1308"></a>1308     # :load_limit :: the maximum message size in bytes accepted by
+</span><span class="inferred1"><a name="line1309"></a>1309     #                the server.  Defaults to 25 MB (26214400).
+</span><span class="inferred0"><a name="line1310"></a>1310     # :argc_limit :: the maximum number of arguments to a remote
+</span><span class="inferred1"><a name="line1311"></a>1311     #                method accepted by the server.  Defaults to
+</span><span class="inferred0"><a name="line1312"></a>1312     #                256.
+</span><span class="inferred1"><a name="line1313"></a>1313     #
+</span><span class="inferred0"><a name="line1314"></a>1314     # The default values of these options can be modified on
+</span><span class="inferred1"><a name="line1315"></a>1315     # a class-wide basis by the class methods #default_argc_limit,
+</span><span class="inferred0"><a name="line1316"></a>1316     # #default_load_limit, #default_acl, #default_id_conv,
+</span><span class="inferred1"><a name="line1317"></a>1317     # and #verbose=
+</span><span class="inferred0"><a name="line1318"></a>1318     #
+</span><span class="inferred1"><a name="line1319"></a>1319     # If +config_or_acl+ is not a hash, but is not nil, it is
+</span><span class="inferred0"><a name="line1320"></a>1320     # assumed to be the access control list for this server.
+</span><span class="inferred1"><a name="line1321"></a>1321     # See the :tcp_acl option for more details.
+</span><span class="inferred0"><a name="line1322"></a>1322     #
+</span><span class="inferred1"><a name="line1323"></a>1323     # If no other server is currently set as the primary server,
+</span><span class="inferred0"><a name="line1324"></a>1324     # this will become the primary server.
+</span><span class="inferred1"><a name="line1325"></a>1325     #
+</span><span class="inferred0"><a name="line1326"></a>1326     # The server will immediately start running in its own thread.
+</span><span class="marked1"><a name="line1327"></a>1327     def initialize(uri=nil, front=nil, config_or_acl=nil)
+</span><span class="uncovered0"><a name="line1328"></a>1328       if Hash === config_or_acl
+</span><span class="uncovered1"><a name="line1329"></a>1329 	config = config_or_acl.dup
+</span><span class="uncovered0"><a name="line1330"></a>1330       else
+</span><span class="uncovered1"><a name="line1331"></a>1331 	acl = config_or_acl || @@acl
+</span><span class="uncovered0"><a name="line1332"></a>1332 	config = {
+</span><span class="uncovered1"><a name="line1333"></a>1333 	  :tcp_acl =&gt; acl
+</span><span class="uncovered0"><a name="line1334"></a>1334 	}
+</span><span class="uncovered1"><a name="line1335"></a>1335       end
+</span><span class="uncovered0"><a name="line1336"></a>1336 
+</span><span class="uncovered1"><a name="line1337"></a>1337       @config = self.class.make_config(config)
+</span><span class="uncovered0"><a name="line1338"></a>1338 
+</span><span class="uncovered1"><a name="line1339"></a>1339       @protocol = DRbProtocol.open_server(uri, @config)
+</span><span class="uncovered0"><a name="line1340"></a>1340       @uri = @protocol.uri
+</span><span class="uncovered1"><a name="line1341"></a>1341 
+</span><span class="uncovered0"><a name="line1342"></a>1342       @front = front
+</span><span class="uncovered1"><a name="line1343"></a>1343       @idconv = @config[:idconv]
+</span><span class="uncovered0"><a name="line1344"></a>1344       @safe_level = @config[:safe_level]
+</span><span class="uncovered1"><a name="line1345"></a>1345 
+</span><span class="uncovered0"><a name="line1346"></a>1346       @grp = ThreadGroup.new
+</span><span class="uncovered1"><a name="line1347"></a>1347       @thread = run
+</span><span class="uncovered0"><a name="line1348"></a>1348 
+</span><span class="uncovered1"><a name="line1349"></a>1349       DRb.regist_server(self)
+</span><span class="uncovered0"><a name="line1350"></a>1350     end
+</span><span class="inferred1"><a name="line1351"></a>1351 
+</span><span class="inferred0"><a name="line1352"></a>1352     # The URI of this DRbServer.
+</span><span class="marked1"><a name="line1353"></a>1353     attr_reader :uri
+</span><span class="inferred0"><a name="line1354"></a>1354 
+</span><span class="inferred1"><a name="line1355"></a>1355     # The main thread of this DRbServer.
+</span><span class="inferred0"><a name="line1356"></a>1356     #
+</span><span class="inferred1"><a name="line1357"></a>1357     # This is the thread that listens for and accepts connections
+</span><span class="inferred0"><a name="line1358"></a>1358     # from clients, not that handles each client's request-response
+</span><span class="inferred1"><a name="line1359"></a>1359     # session.
+</span><span class="marked0"><a name="line1360"></a>1360     attr_reader :thread
+</span><span class="inferred1"><a name="line1361"></a>1361 
+</span><span class="inferred0"><a name="line1362"></a>1362     # The front object of the DRbServer.
+</span><span class="inferred1"><a name="line1363"></a>1363     # 
+</span><span class="inferred0"><a name="line1364"></a>1364     # This object receives remote method calls made on the server's
+</span><span class="inferred1"><a name="line1365"></a>1365     # URI alone, with an object id.
+</span><span class="marked0"><a name="line1366"></a>1366     attr_reader :front
+</span><span class="inferred1"><a name="line1367"></a>1367 
+</span><span class="inferred0"><a name="line1368"></a>1368     # The configuration of this DRbServer
+</span><span class="marked1"><a name="line1369"></a>1369     attr_reader :config
+</span><span class="inferred0"><a name="line1370"></a>1370 
+</span><span class="marked1"><a name="line1371"></a>1371     attr_reader :safe_level
+</span><span class="inferred0"><a name="line1372"></a>1372 
+</span><span class="inferred1"><a name="line1373"></a>1373     # Set whether to operate in verbose mode.
+</span><span class="inferred0"><a name="line1374"></a>1374     #
+</span><span class="inferred1"><a name="line1375"></a>1375     # In verbose mode, failed calls are logged to stdout.
+</span><span class="marked0"><a name="line1376"></a>1376     def verbose=(v); @config[:verbose]=v; end
+</span><span class="inferred1"><a name="line1377"></a>1377 
+</span><span class="inferred0"><a name="line1378"></a>1378     # Get whether the server is in verbose mode.
+</span><span class="inferred1"><a name="line1379"></a>1379     #
+</span><span class="inferred0"><a name="line1380"></a>1380     # In verbose mode, failed calls are logged to stdout.
+</span><span class="marked1"><a name="line1381"></a>1381     def verbose; @config[:verbose]; end
+</span><span class="inferred0"><a name="line1382"></a>1382 
+</span><span class="inferred1"><a name="line1383"></a>1383     # Is this server alive?
+</span><span class="marked0"><a name="line1384"></a>1384     def alive?
+</span><span class="uncovered1"><a name="line1385"></a>1385       @thread.alive?
+</span><span class="uncovered0"><a name="line1386"></a>1386     end
+</span><span class="inferred1"><a name="line1387"></a>1387 
+</span><span class="inferred0"><a name="line1388"></a>1388     # Stop this server.
+</span><span class="marked1"><a name="line1389"></a>1389     def stop_service
+</span><span class="uncovered0"><a name="line1390"></a>1390       DRb.remove_server(self)
+</span><span class="uncovered1"><a name="line1391"></a>1391       if  Thread.current['DRb'] &amp;&amp; Thread.current['DRb']['server'] == self
+</span><span class="uncovered0"><a name="line1392"></a>1392         Thread.current['DRb']['stop_service'] = true
+</span><span class="uncovered1"><a name="line1393"></a>1393       else
+</span><span class="uncovered0"><a name="line1394"></a>1394         @thread.kill
+</span><span class="uncovered1"><a name="line1395"></a>1395       end
+</span><span class="uncovered0"><a name="line1396"></a>1396     end
+</span><span class="inferred1"><a name="line1397"></a>1397 
+</span><span class="inferred0"><a name="line1398"></a>1398     # Convert a dRuby reference to the local object it refers to.
+</span><span class="marked1"><a name="line1399"></a>1399     def to_obj(ref)
+</span><span class="uncovered0"><a name="line1400"></a>1400       return front if ref.nil?
+</span><span class="uncovered1"><a name="line1401"></a>1401       return front[ref.to_s] if DRbURIOption === ref
+</span><span class="uncovered0"><a name="line1402"></a>1402       @idconv.to_obj(ref)
+</span><span class="uncovered1"><a name="line1403"></a>1403     end
+</span><span class="inferred0"><a name="line1404"></a>1404 
+</span><span class="inferred1"><a name="line1405"></a>1405     # Convert a local object to a dRuby reference.
+</span><span class="marked0"><a name="line1406"></a>1406     def to_id(obj)
+</span><span class="uncovered1"><a name="line1407"></a>1407       return nil if obj.__id__ == front.__id__
+</span><span class="uncovered0"><a name="line1408"></a>1408       @idconv.to_id(obj)
+</span><span class="uncovered1"><a name="line1409"></a>1409     end
+</span><span class="inferred0"><a name="line1410"></a>1410 
+</span><span class="marked1"><a name="line1411"></a>1411     private
+</span><span class="marked0"><a name="line1412"></a>1412     def kill_sub_thread
+</span><span class="uncovered1"><a name="line1413"></a>1413       Thread.new do
+</span><span class="uncovered0"><a name="line1414"></a>1414 	grp = ThreadGroup.new
+</span><span class="uncovered1"><a name="line1415"></a>1415 	grp.add(Thread.current)
+</span><span class="uncovered0"><a name="line1416"></a>1416 	list = @grp.list
+</span><span class="uncovered1"><a name="line1417"></a>1417 	while list.size &gt; 0
+</span><span class="uncovered0"><a name="line1418"></a>1418 	  list.each do |th|
+</span><span class="uncovered1"><a name="line1419"></a>1419 	    th.kill if th.alive?
+</span><span class="uncovered0"><a name="line1420"></a>1420 	  end
+</span><span class="uncovered1"><a name="line1421"></a>1421 	  list = @grp.list
+</span><span class="uncovered0"><a name="line1422"></a>1422 	end
+</span><span class="uncovered1"><a name="line1423"></a>1423       end
+</span><span class="uncovered0"><a name="line1424"></a>1424     end
+</span><span class="inferred1"><a name="line1425"></a>1425 
+</span><span class="marked0"><a name="line1426"></a>1426     def run
+</span><span class="uncovered1"><a name="line1427"></a>1427       Thread.start do
+</span><span class="uncovered0"><a name="line1428"></a>1428 	begin
+</span><span class="uncovered1"><a name="line1429"></a>1429 	  while true
+</span><span class="uncovered0"><a name="line1430"></a>1430 	    main_loop
+</span><span class="uncovered1"><a name="line1431"></a>1431 	  end
+</span><span class="uncovered0"><a name="line1432"></a>1432 	ensure
+</span><span class="uncovered1"><a name="line1433"></a>1433 	  @protocol.close if @protocol
+</span><span class="uncovered0"><a name="line1434"></a>1434 	  kill_sub_thread
+</span><span class="uncovered1"><a name="line1435"></a>1435 	end
+</span><span class="uncovered0"><a name="line1436"></a>1436       end
+</span><span class="uncovered1"><a name="line1437"></a>1437     end
+</span><span class="inferred0"><a name="line1438"></a>1438 
+</span><span class="inferred1"><a name="line1439"></a>1439     # List of insecure methods.
+</span><span class="inferred0"><a name="line1440"></a>1440     #
+</span><span class="inferred1"><a name="line1441"></a>1441     # These methods are not callable via dRuby.
+</span><span class="marked0"><a name="line1442"></a>1442     INSECURE_METHOD = [
+</span><span class="inferred1"><a name="line1443"></a>1443       :__send__
+</span><span class="inferred0"><a name="line1444"></a>1444     ]
+</span><span class="inferred1"><a name="line1445"></a>1445 
+</span><span class="inferred0"><a name="line1446"></a>1446     # Has a method been included in the list of insecure methods?
+</span><span class="marked1"><a name="line1447"></a>1447     def insecure_method?(msg_id)
+</span><span class="uncovered0"><a name="line1448"></a>1448       INSECURE_METHOD.include?(msg_id)
+</span><span class="uncovered1"><a name="line1449"></a>1449     end
+</span><span class="inferred0"><a name="line1450"></a>1450 
+</span><span class="inferred1"><a name="line1451"></a>1451     # Coerce an object to a string, providing our own representation if
+</span><span class="inferred0"><a name="line1452"></a>1452     # to_s is not defined for the object.
+</span><span class="marked1"><a name="line1453"></a>1453     def any_to_s(obj)
+</span><span class="uncovered0"><a name="line1454"></a>1454       obj.to_s + &quot;:#{obj.class}&quot;
+</span><span class="uncovered1"><a name="line1455"></a>1455     rescue
+</span><span class="uncovered0"><a name="line1456"></a>1456       sprintf(&quot;#&lt;%s:0x%lx&gt;&quot;, obj.class, obj.__id__)      
+</span><span class="uncovered1"><a name="line1457"></a>1457     end
+</span><span class="inferred0"><a name="line1458"></a>1458 
+</span><span class="inferred1"><a name="line1459"></a>1459     # Check that a method is callable via dRuby.
+</span><span class="inferred0"><a name="line1460"></a>1460     #
+</span><span class="inferred1"><a name="line1461"></a>1461     # +obj+ is the object we want to invoke the method on. +msg_id+ is the
+</span><span class="inferred0"><a name="line1462"></a>1462     # method name, as a Symbol.
+</span><span class="inferred1"><a name="line1463"></a>1463     #
+</span><span class="inferred0"><a name="line1464"></a>1464     # If the method is an insecure method (see #insecure_method?) a 
+</span><span class="inferred1"><a name="line1465"></a>1465     # SecurityError is thrown.  If the method is private or undefined,
+</span><span class="inferred0"><a name="line1466"></a>1466     # a NameError is thrown.
+</span><span class="marked1"><a name="line1467"></a>1467     def check_insecure_method(obj, msg_id)
+</span><span class="uncovered0"><a name="line1468"></a>1468       return true if Proc === obj &amp;&amp; msg_id == :__drb_yield
+</span><span class="uncovered1"><a name="line1469"></a>1469       raise(ArgumentError, &quot;#{any_to_s(msg_id)} is not a symbol&quot;) unless Symbol == msg_id.class
+</span><span class="uncovered0"><a name="line1470"></a>1470       raise(SecurityError, &quot;insecure method `#{msg_id}'&quot;) if insecure_method?(msg_id)
+</span><span class="uncovered1"><a name="line1471"></a>1471       
+</span><span class="uncovered0"><a name="line1472"></a>1472       if obj.private_methods.include?(msg_id.to_s)
+</span><span class="uncovered1"><a name="line1473"></a>1473 	desc = any_to_s(obj)
+</span><span class="uncovered0"><a name="line1474"></a>1474         raise NoMethodError, &quot;private method `#{msg_id}' called for #{desc}&quot;
+</span><span class="uncovered1"><a name="line1475"></a>1475       elsif obj.protected_methods.include?(msg_id.to_s)
+</span><span class="uncovered0"><a name="line1476"></a>1476 	desc = any_to_s(obj)
+</span><span class="uncovered1"><a name="line1477"></a>1477         raise NoMethodError, &quot;protected method `#{msg_id}' called for #{desc}&quot;
+</span><span class="uncovered0"><a name="line1478"></a>1478       else
+</span><span class="uncovered1"><a name="line1479"></a>1479         true
+</span><span class="uncovered0"><a name="line1480"></a>1480       end
+</span><span class="uncovered1"><a name="line1481"></a>1481     end
+</span><span class="marked0"><a name="line1482"></a>1482     public :check_insecure_method
+</span><span class="inferred1"><a name="line1483"></a>1483     
+</span><span class="marked0"><a name="line1484"></a>1484     class InvokeMethod  # :nodoc:
+</span><span class="marked1"><a name="line1485"></a>1485       def initialize(drb_server, client)
+</span><span class="uncovered0"><a name="line1486"></a>1486 	@drb_server = drb_server
+</span><span class="uncovered1"><a name="line1487"></a>1487         @safe_level = drb_server.safe_level
+</span><span class="uncovered0"><a name="line1488"></a>1488 	@client = client
+</span><span class="uncovered1"><a name="line1489"></a>1489       end
+</span><span class="inferred0"><a name="line1490"></a>1490 
+</span><span class="marked1"><a name="line1491"></a>1491       def perform
+</span><span class="uncovered0"><a name="line1492"></a>1492 	@result = nil
+</span><span class="uncovered1"><a name="line1493"></a>1493 	@succ = false
+</span><span class="uncovered0"><a name="line1494"></a>1494 	setup_message
+</span><span class="uncovered1"><a name="line1495"></a>1495 
+</span><span class="uncovered0"><a name="line1496"></a>1496         if $SAFE &lt; @safe_level
+</span><span class="uncovered1"><a name="line1497"></a>1497           info = Thread.current['DRb']
+</span><span class="uncovered0"><a name="line1498"></a>1498           if @block
+</span><span class="uncovered1"><a name="line1499"></a>1499             @result = Thread.new {
+</span><span class="uncovered0"><a name="line1500"></a>1500               Thread.current['DRb'] = info
+</span><span class="uncovered1"><a name="line1501"></a>1501               $SAFE = @safe_level
+</span><span class="uncovered0"><a name="line1502"></a>1502               perform_with_block
+</span><span class="uncovered1"><a name="line1503"></a>1503             }.value
+</span><span class="uncovered0"><a name="line1504"></a>1504           else
+</span><span class="uncovered1"><a name="line1505"></a>1505             @result = Thread.new { 
+</span><span class="uncovered0"><a name="line1506"></a>1506               Thread.current['DRb'] = info
+</span><span class="uncovered1"><a name="line1507"></a>1507               $SAFE = @safe_level
+</span><span class="uncovered0"><a name="line1508"></a>1508               perform_without_block
+</span><span class="uncovered1"><a name="line1509"></a>1509             }.value
+</span><span class="uncovered0"><a name="line1510"></a>1510           end
+</span><span class="uncovered1"><a name="line1511"></a>1511         else
+</span><span class="uncovered0"><a name="line1512"></a>1512           if @block
+</span><span class="uncovered1"><a name="line1513"></a>1513             @result = perform_with_block
+</span><span class="uncovered0"><a name="line1514"></a>1514           else
+</span><span class="uncovered1"><a name="line1515"></a>1515             @result = perform_without_block
+</span><span class="uncovered0"><a name="line1516"></a>1516           end
+</span><span class="uncovered1"><a name="line1517"></a>1517         end
+</span><span class="uncovered0"><a name="line1518"></a>1518 	@succ = true
+</span><span class="uncovered1"><a name="line1519"></a>1519 	if @msg_id == :to_ary &amp;&amp; @result.class == Array
+</span><span class="uncovered0"><a name="line1520"></a>1520 	  @result = DRbArray.new(@result) 
+</span><span class="uncovered1"><a name="line1521"></a>1521 	end
+</span><span class="uncovered0"><a name="line1522"></a>1522 	return @succ, @result
+</span><span class="uncovered1"><a name="line1523"></a>1523       rescue StandardError, ScriptError, Interrupt
+</span><span class="uncovered0"><a name="line1524"></a>1524 	@result = $!
+</span><span class="uncovered1"><a name="line1525"></a>1525 	return @succ, @result
+</span><span class="uncovered0"><a name="line1526"></a>1526       end
+</span><span class="inferred1"><a name="line1527"></a>1527 
+</span><span class="marked0"><a name="line1528"></a>1528       private
+</span><span class="marked1"><a name="line1529"></a>1529       def init_with_client
+</span><span class="uncovered0"><a name="line1530"></a>1530 	obj, msg, argv, block = @client.recv_request
+</span><span class="uncovered1"><a name="line1531"></a>1531         @obj = obj
+</span><span class="uncovered0"><a name="line1532"></a>1532         @msg_id = msg.intern
+</span><span class="uncovered1"><a name="line1533"></a>1533         @argv = argv
+</span><span class="uncovered0"><a name="line1534"></a>1534         @block = block
+</span><span class="uncovered1"><a name="line1535"></a>1535       end
+</span><span class="inferred0"><a name="line1536"></a>1536       
+</span><span class="marked1"><a name="line1537"></a>1537       def check_insecure_method
+</span><span class="uncovered0"><a name="line1538"></a>1538         @drb_server.check_insecure_method(@obj, @msg_id)
+</span><span class="uncovered1"><a name="line1539"></a>1539       end
+</span><span class="inferred0"><a name="line1540"></a>1540 
+</span><span class="marked1"><a name="line1541"></a>1541       def setup_message
+</span><span class="uncovered0"><a name="line1542"></a>1542 	init_with_client
+</span><span class="uncovered1"><a name="line1543"></a>1543 	check_insecure_method
+</span><span class="uncovered0"><a name="line1544"></a>1544       end
+</span><span class="inferred1"><a name="line1545"></a>1545       
+</span><span class="marked0"><a name="line1546"></a>1546       def perform_without_block
+</span><span class="uncovered1"><a name="line1547"></a>1547 	if Proc === @obj &amp;&amp; @msg_id == :__drb_yield
+</span><span class="uncovered0"><a name="line1548"></a>1548           if @argv.size == 1
+</span><span class="uncovered1"><a name="line1549"></a>1549 	    ary = @argv
+</span><span class="uncovered0"><a name="line1550"></a>1550 	  else
+</span><span class="uncovered1"><a name="line1551"></a>1551 	    ary = [@argv]
+</span><span class="uncovered0"><a name="line1552"></a>1552 	  end
+</span><span class="uncovered1"><a name="line1553"></a>1553 	  ary.collect(&amp;@obj)[0]
+</span><span class="uncovered0"><a name="line1554"></a>1554 	else
+</span><span class="uncovered1"><a name="line1555"></a>1555 	  @obj.__send__(@msg_id, *@argv)
+</span><span class="uncovered0"><a name="line1556"></a>1556 	end
+</span><span class="uncovered1"><a name="line1557"></a>1557       end
+</span><span class="uncovered0"><a name="line1558"></a>1558 
+</span><span class="uncovered1"><a name="line1559"></a>1559     end
+</span><span class="inferred0"><a name="line1560"></a>1560 
+</span><span class="marked1"><a name="line1561"></a>1561     if RUBY_VERSION &gt;= '1.8'
+</span><span class="marked0"><a name="line1562"></a>1562       require 'drb/invokemethod'
+</span><span class="marked1"><a name="line1563"></a>1563       class InvokeMethod
+</span><span class="marked0"><a name="line1564"></a>1564         include InvokeMethod18Mixin
+</span><span class="inferred1"><a name="line1565"></a>1565       end
+</span><span class="uncovered0"><a name="line1566"></a>1566     else
+</span><span class="uncovered1"><a name="line1567"></a>1567       require 'drb/invokemethod16'
+</span><span class="uncovered0"><a name="line1568"></a>1568       class InvokeMethod
+</span><span class="uncovered1"><a name="line1569"></a>1569         include InvokeMethod16Mixin
+</span><span class="uncovered0"><a name="line1570"></a>1570       end
+</span><span class="uncovered1"><a name="line1571"></a>1571     end
+</span><span class="inferred0"><a name="line1572"></a>1572 
+</span><span class="inferred1"><a name="line1573"></a>1573     # The main loop performed by a DRbServer's internal thread.
+</span><span class="inferred0"><a name="line1574"></a>1574     #
+</span><span class="inferred1"><a name="line1575"></a>1575     # Accepts a connection from a client, and starts up its own
+</span><span class="inferred0"><a name="line1576"></a>1576     # thread to handle it.  This thread loops, receiving requests
+</span><span class="inferred1"><a name="line1577"></a>1577     # from the client, invoking them on a local object, and
+</span><span class="inferred0"><a name="line1578"></a>1578     # returning responses, until the client closes the connection
+</span><span class="inferred1"><a name="line1579"></a>1579     # or a local method call fails.
+</span><span class="marked0"><a name="line1580"></a>1580     def main_loop
+</span><span class="uncovered1"><a name="line1581"></a>1581       Thread.start(@protocol.accept) do |client|
+</span><span class="uncovered0"><a name="line1582"></a>1582 	@grp.add Thread.current
+</span><span class="uncovered1"><a name="line1583"></a>1583 	Thread.current['DRb'] = { 'client' =&gt; client ,
+</span><span class="uncovered0"><a name="line1584"></a>1584 	                          'server' =&gt; self }
+</span><span class="uncovered1"><a name="line1585"></a>1585 	loop do
+</span><span class="uncovered0"><a name="line1586"></a>1586 	  begin
+</span><span class="uncovered1"><a name="line1587"></a>1587 	    succ = false
+</span><span class="uncovered0"><a name="line1588"></a>1588 	    invoke_method = InvokeMethod.new(self, client)
+</span><span class="uncovered1"><a name="line1589"></a>1589 	    succ, result = invoke_method.perform
+</span><span class="uncovered0"><a name="line1590"></a>1590 	    if !succ &amp;&amp; verbose
+</span><span class="uncovered1"><a name="line1591"></a>1591 	      p result
+</span><span class="uncovered0"><a name="line1592"></a>1592 	      result.backtrace.each do |x|
+</span><span class="uncovered1"><a name="line1593"></a>1593 		puts x
+</span><span class="uncovered0"><a name="line1594"></a>1594 	      end
+</span><span class="uncovered1"><a name="line1595"></a>1595 	    end
+</span><span class="uncovered0"><a name="line1596"></a>1596 	    client.send_reply(succ, result) rescue nil
+</span><span class="uncovered1"><a name="line1597"></a>1597 	  ensure
+</span><span class="uncovered0"><a name="line1598"></a>1598             client.close unless succ
+</span><span class="uncovered1"><a name="line1599"></a>1599             if Thread.current['DRb']['stop_service']
+</span><span class="uncovered0"><a name="line1600"></a>1600               Thread.new { stop_service }
+</span><span class="uncovered1"><a name="line1601"></a>1601             end
+</span><span class="uncovered0"><a name="line1602"></a>1602             break unless succ
+</span><span class="uncovered1"><a name="line1603"></a>1603 	  end
+</span><span class="uncovered0"><a name="line1604"></a>1604 	end
+</span><span class="uncovered1"><a name="line1605"></a>1605       end
+</span><span class="uncovered0"><a name="line1606"></a>1606     end
+</span><span class="uncovered1"><a name="line1607"></a>1607   end
+</span><span class="inferred0"><a name="line1608"></a>1608 
+</span><span class="marked1"><a name="line1609"></a>1609   @primary_server = nil
+</span><span class="inferred0"><a name="line1610"></a>1610 
+</span><span class="inferred1"><a name="line1611"></a>1611   # Start a dRuby server locally.
+</span><span class="inferred0"><a name="line1612"></a>1612   #
+</span><span class="inferred1"><a name="line1613"></a>1613   # The new dRuby server will become the primary server, even
+</span><span class="inferred0"><a name="line1614"></a>1614   # if another server is currently the primary server.
+</span><span class="inferred1"><a name="line1615"></a>1615   #
+</span><span class="inferred0"><a name="line1616"></a>1616   # +uri+ is the URI for the server to bind to.  If nil,
+</span><span class="inferred1"><a name="line1617"></a>1617   # the server will bind to random port on the default local host
+</span><span class="inferred0"><a name="line1618"></a>1618   # name and use the default dRuby protocol.
+</span><span class="inferred1"><a name="line1619"></a>1619   #
+</span><span class="inferred0"><a name="line1620"></a>1620   # +front+ is the server's front object.  This may be nil.
+</span><span class="inferred1"><a name="line1621"></a>1621   #
+</span><span class="inferred0"><a name="line1622"></a>1622   # +config+ is the configuration for the new server.  This may
+</span><span class="inferred1"><a name="line1623"></a>1623   # be nil.
+</span><span class="inferred0"><a name="line1624"></a>1624   #
+</span><span class="inferred1"><a name="line1625"></a>1625   # See DRbServer::new.
+</span><span class="marked0"><a name="line1626"></a>1626   def start_service(uri=nil, front=nil, config=nil)
+</span><span class="uncovered1"><a name="line1627"></a>1627     @primary_server = DRbServer.new(uri, front, config)
+</span><span class="uncovered0"><a name="line1628"></a>1628   end
+</span><span class="marked1"><a name="line1629"></a>1629   module_function :start_service
+</span><span class="inferred0"><a name="line1630"></a>1630 
+</span><span class="inferred1"><a name="line1631"></a>1631   # The primary local dRuby server.
+</span><span class="inferred0"><a name="line1632"></a>1632   #
+</span><span class="inferred1"><a name="line1633"></a>1633   # This is the server created by the #start_service call.  
+</span><span class="marked0"><a name="line1634"></a>1634   attr_accessor :primary_server
+</span><span class="marked1"><a name="line1635"></a>1635   module_function :primary_server=, :primary_server
+</span><span class="inferred0"><a name="line1636"></a>1636 
+</span><span class="inferred1"><a name="line1637"></a>1637   # Get the 'current' server.
+</span><span class="inferred0"><a name="line1638"></a>1638   #
+</span><span class="inferred1"><a name="line1639"></a>1639   # In the context of execution taking place within the main
+</span><span class="inferred0"><a name="line1640"></a>1640   # thread of a dRuby server (typically, as a result of a remote
+</span><span class="inferred1"><a name="line1641"></a>1641   # call on the server or one of its objects), the current
+</span><span class="inferred0"><a name="line1642"></a>1642   # server is that server.  Otherwise, the current server is
+</span><span class="inferred1"><a name="line1643"></a>1643   # the primary server.
+</span><span class="inferred0"><a name="line1644"></a>1644   #
+</span><span class="inferred1"><a name="line1645"></a>1645   # If the above rule fails to find a server, a DRbServerNotFound
+</span><span class="inferred0"><a name="line1646"></a>1646   # error is raised.
+</span><span class="marked1"><a name="line1647"></a>1647   def current_server
+</span><span class="uncovered0"><a name="line1648"></a>1648     drb = Thread.current['DRb'] 
+</span><span class="uncovered1"><a name="line1649"></a>1649     server = (drb &amp;&amp; drb['server']) ? drb['server'] : @primary_server 
+</span><span class="uncovered0"><a name="line1650"></a>1650     raise DRbServerNotFound unless server
+</span><span class="uncovered1"><a name="line1651"></a>1651     return server
+</span><span class="uncovered0"><a name="line1652"></a>1652   end
+</span><span class="marked1"><a name="line1653"></a>1653   module_function :current_server
+</span><span class="inferred0"><a name="line1654"></a>1654 
+</span><span class="inferred1"><a name="line1655"></a>1655   # Stop the local dRuby server.
+</span><span class="inferred0"><a name="line1656"></a>1656   #
+</span><span class="inferred1"><a name="line1657"></a>1657   # This operates on the primary server.  If there is no primary
+</span><span class="inferred0"><a name="line1658"></a>1658   # server currently running, it is a noop.
+</span><span class="marked1"><a name="line1659"></a>1659   def stop_service
+</span><span class="uncovered0"><a name="line1660"></a>1660     @primary_server.stop_service if @primary_server
+</span><span class="uncovered1"><a name="line1661"></a>1661     @primary_server = nil
+</span><span class="uncovered0"><a name="line1662"></a>1662   end
+</span><span class="marked1"><a name="line1663"></a>1663   module_function :stop_service
+</span><span class="inferred0"><a name="line1664"></a>1664 
+</span><span class="inferred1"><a name="line1665"></a>1665   # Get the URI defining the local dRuby space.
+</span><span class="inferred0"><a name="line1666"></a>1666   #
+</span><span class="inferred1"><a name="line1667"></a>1667   # This is the URI of the current server.  See #current_server.
+</span><span class="marked0"><a name="line1668"></a>1668   def uri
+</span><span class="uncovered1"><a name="line1669"></a>1669     current_server.uri
+</span><span class="uncovered0"><a name="line1670"></a>1670   end
+</span><span class="marked1"><a name="line1671"></a>1671   module_function :uri
+</span><span class="inferred0"><a name="line1672"></a>1672 
+</span><span class="inferred1"><a name="line1673"></a>1673   # Is +uri+ the URI for the current local server?
+</span><span class="marked0"><a name="line1674"></a>1674   def here?(uri)
+</span><span class="uncovered1"><a name="line1675"></a>1675     (current_server.uri rescue nil) == uri
+</span><span class="uncovered0"><a name="line1676"></a>1676   end
+</span><span class="marked1"><a name="line1677"></a>1677   module_function :here?
+</span><span class="inferred0"><a name="line1678"></a>1678 
+</span><span class="inferred1"><a name="line1679"></a>1679   # Get the configuration of the current server.
+</span><span class="inferred0"><a name="line1680"></a>1680   #
+</span><span class="inferred1"><a name="line1681"></a>1681   # If there is no current server, this returns the default configuration.
+</span><span class="inferred0"><a name="line1682"></a>1682   # See #current_server and DRbServer::make_config.
+</span><span class="marked1"><a name="line1683"></a>1683   def config
+</span><span class="uncovered0"><a name="line1684"></a>1684     current_server.config
+</span><span class="uncovered1"><a name="line1685"></a>1685   rescue
+</span><span class="uncovered0"><a name="line1686"></a>1686     DRbServer.make_config
+</span><span class="uncovered1"><a name="line1687"></a>1687   end
+</span><span class="marked0"><a name="line1688"></a>1688   module_function :config
+</span><span class="inferred1"><a name="line1689"></a>1689   
+</span><span class="inferred0"><a name="line1690"></a>1690   # Get the front object of the current server.
+</span><span class="inferred1"><a name="line1691"></a>1691   #
+</span><span class="inferred0"><a name="line1692"></a>1692   # This raises a DRbServerNotFound error if there is no current server.
+</span><span class="inferred1"><a name="line1693"></a>1693   # See #current_server.
+</span><span class="marked0"><a name="line1694"></a>1694   def front
+</span><span class="uncovered1"><a name="line1695"></a>1695     current_server.front
+</span><span class="uncovered0"><a name="line1696"></a>1696   end
+</span><span class="marked1"><a name="line1697"></a>1697   module_function :front
+</span><span class="inferred0"><a name="line1698"></a>1698 
+</span><span class="inferred1"><a name="line1699"></a>1699   # Convert a reference into an object using the current server.
+</span><span class="inferred0"><a name="line1700"></a>1700   #
+</span><span class="inferred1"><a name="line1701"></a>1701   # This raises a DRbServerNotFound error if there is no current server.
+</span><span class="inferred0"><a name="line1702"></a>1702   # See #current_server.
+</span><span class="marked1"><a name="line1703"></a>1703   def to_obj(ref)
+</span><span class="uncovered0"><a name="line1704"></a>1704     current_server.to_obj(ref)
+</span><span class="uncovered1"><a name="line1705"></a>1705   end
+</span><span class="inferred0"><a name="line1706"></a>1706 
+</span><span class="inferred1"><a name="line1707"></a>1707   # Get a reference id for an object using the current server.
+</span><span class="inferred0"><a name="line1708"></a>1708   #
+</span><span class="inferred1"><a name="line1709"></a>1709   # This raises a DRbServerNotFound error if there is no current server.
+</span><span class="inferred0"><a name="line1710"></a>1710   # See #current_server.
+</span><span class="marked1"><a name="line1711"></a>1711   def to_id(obj)
+</span><span class="uncovered0"><a name="line1712"></a>1712     current_server.to_id(obj)
+</span><span class="uncovered1"><a name="line1713"></a>1713   end
+</span><span class="marked0"><a name="line1714"></a>1714   module_function :to_id
+</span><span class="marked1"><a name="line1715"></a>1715   module_function :to_obj
+</span><span class="inferred0"><a name="line1716"></a>1716 
+</span><span class="inferred1"><a name="line1717"></a>1717   # Get the thread of the primary server.
+</span><span class="inferred0"><a name="line1718"></a>1718   #
+</span><span class="inferred1"><a name="line1719"></a>1719   # This returns nil if there is no primary server.  See #primary_server.
+</span><span class="marked0"><a name="line1720"></a>1720   def thread
+</span><span class="uncovered1"><a name="line1721"></a>1721     @primary_server ? @primary_server.thread : nil
+</span><span class="uncovered0"><a name="line1722"></a>1722   end
+</span><span class="marked1"><a name="line1723"></a>1723   module_function :thread
+</span><span class="inferred0"><a name="line1724"></a>1724 
+</span><span class="inferred1"><a name="line1725"></a>1725   # Set the default id conv object.
+</span><span class="inferred0"><a name="line1726"></a>1726   #
+</span><span class="inferred1"><a name="line1727"></a>1727   # See DRbServer#default_id_conv.
+</span><span class="marked0"><a name="line1728"></a>1728   def install_id_conv(idconv)
+</span><span class="uncovered1"><a name="line1729"></a>1729     DRbServer.default_id_conv(idconv)
+</span><span class="uncovered0"><a name="line1730"></a>1730   end
+</span><span class="marked1"><a name="line1731"></a>1731   module_function :install_id_conv
+</span><span class="inferred0"><a name="line1732"></a>1732 
+</span><span class="inferred1"><a name="line1733"></a>1733   # Set the default acl.
+</span><span class="inferred0"><a name="line1734"></a>1734   #
+</span><span class="inferred1"><a name="line1735"></a>1735   # See DRb::DRbServer.default_acl.
+</span><span class="marked0"><a name="line1736"></a>1736   def install_acl(acl)
+</span><span class="uncovered1"><a name="line1737"></a>1737     DRbServer.default_acl(acl)
+</span><span class="uncovered0"><a name="line1738"></a>1738   end
+</span><span class="marked1"><a name="line1739"></a>1739   module_function :install_acl
+</span><span class="inferred0"><a name="line1740"></a>1740 
+</span><span class="marked1"><a name="line1741"></a>1741   @server = {}
+</span><span class="marked0"><a name="line1742"></a>1742   def regist_server(server)
+</span><span class="uncovered1"><a name="line1743"></a>1743     @server[server.uri] = server
+</span><span class="uncovered0"><a name="line1744"></a>1744     Thread.exclusive do
+</span><span class="uncovered1"><a name="line1745"></a>1745       @primary_server = server unless @primary_server
+</span><span class="uncovered0"><a name="line1746"></a>1746     end
+</span><span class="uncovered1"><a name="line1747"></a>1747   end
+</span><span class="marked0"><a name="line1748"></a>1748   module_function :regist_server
+</span><span class="inferred1"><a name="line1749"></a>1749 
+</span><span class="marked0"><a name="line1750"></a>1750   def remove_server(server)
+</span><span class="uncovered1"><a name="line1751"></a>1751     @server.delete(server.uri)
+</span><span class="uncovered0"><a name="line1752"></a>1752   end
+</span><span class="marked1"><a name="line1753"></a>1753   module_function :remove_server
+</span><span class="inferred0"><a name="line1754"></a>1754   
+</span><span class="marked1"><a name="line1755"></a>1755   def fetch_server(uri)
+</span><span class="uncovered0"><a name="line1756"></a>1756     @server[uri]
+</span><span class="uncovered1"><a name="line1757"></a>1757   end
+</span><span class="marked0"><a name="line1758"></a>1758   module_function :fetch_server
+</span><span class="inferred1"><a name="line1759"></a>1759 end
+</span><span class="inferred0"><a name="line1760"></a>1760 
+</span><span class="marked1"><a name="line1761"></a>1761 DRbObject = DRb::DRbObject
+</span><span class="marked0"><a name="line1762"></a>1762 DRbUndumped = DRb::DRbUndumped
+</span><span class="marked1"><a name="line1763"></a>1763 DRbIdConv = DRb::DRbIdConv
+</span></pre><hr/>
+    <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
+   version 0.8.1.2.</p>
+<p><a href='http://validator.w3.org/check/referer'><img src='http://www.w3.org/Icons/valid-xhtml10' height='31' alt='Valid XHTML 1.0!' width='88'/>
+        </a>
+      <a href='http://jigsaw.w3.org/css-validator/check/referer'><img src='http://jigsaw.w3.org/css-validator/images/vcss' alt='Valid CSS!' style='border:0;width:88px;height:31px'/>
+        </a>
+      </p>
+    </body>
+  </html>
