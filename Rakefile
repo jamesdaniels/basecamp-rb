@@ -16,5 +16,5 @@ $hoe = Hoe.new('basecamp-rb', Basecamp::VERSION) do |p|
   p.clean_globs |= %w[**/.DS_Store tmp *.log]
 end
 
-require 'newgem/tasks' # load /tasks/*.rake
+require 'newgem/tasks'
 Dir['tasks/**/*.rake'].each { |t| load t }
