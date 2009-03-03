@@ -8,6 +8,7 @@ $hoe = Hoe.new('basecamp-rb', Basecamp::VERSION) do |p|
   p.changes = p.paragraphs_of("History.txt", 0..1).join("\n\n")
   p.extra_deps = [
     ['xml-simple','>= 1.0.11'],
+    ['activesupport','>= 2.2.2'],
     ['activeresource','>= 2.2.2']
   ]
   p.extra_dev_deps = [
