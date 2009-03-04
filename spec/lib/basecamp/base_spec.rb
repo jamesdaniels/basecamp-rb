@@ -1,10 +1,16 @@
 require File.dirname(__FILE__) + '/../../spec_helper.rb'
 
 describe Basecamp::Base do
-  before(:each) do
+  before(:all) do
     establish_connection
+    @todo = create_todo_list_for_project_with_todo(TEST_PROJECT_ID)
+    @todo_list_id = @todo.todo_list_id
   end
-  
+ 
+  after(:all) do
+    Basecamp::TodoList.delete(@todo_list_id)
+  end
+
   describe "Creating a resource" do
     it "should create a comment for post" do      
       comment = Basecamp::Comment.new(:post_id => TEST_MESSAGE_ID)
@@ -37,8 +43,7 @@ describe Basecamp::Base do
   
   describe "Deleting a Resource" do
     it "should delete todo item" do
-      todo = Basecamp::TodoItem.create(:todo_list_id => TEST_TODO_LIST_ID, :content => 'Todo for destroy')
-      Basecamp::TodoItem.delete(todo.id)
+      Basecamp::TodoItem.delete(@todo.id)
     end
   end
 end

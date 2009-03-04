@@ -8,16 +8,15 @@ end
 
 require File.dirname(__FILE__) + '/../lib/basecamp'
 
-SITE_URL = 'flatsoft.grouphub.com'
-LOGIN = 'alexey.panin'
-PASSWORD = '5721955'
+SITE_URL = ''
+LOGIN = ''
+PASSWORD = ''
 USE_SSL = true  
 
-TEST_PROJECT_ID = 2971868
-TEST_MESSAGE_ID = 20216236   # TEST_MESSAGE SHOULD BELONG TO TEST PROJECT!!!
-TEST_COMPANY_ID = 1040098
-TEST_PERSON_ID = 2766635
-TEST_TODO_LIST_ID = 5576947
+TEST_PROJECT_ID   = 
+TEST_MESSAGE_ID   =    # TEST_MESSAGE SHOULD BELONG TO TEST PROJECT!!!
+TEST_COMPANY_ID   = 
+TEST_PERSON_ID    = 
 
 def establish_connection
   Basecamp::Base.establish_connection!(SITE_URL, LOGIN, PASSWORD, USE_SSL)
@@ -34,10 +33,29 @@ def delete_comments_for_message(id)
   message.comments.each {|c| Basecamp::Comment.delete(c.id)}
 end
 
-def delete_time_entries_for_project(id)
-  entry = Basecamp::Project.find(id)
-  message.comments.each {|c| Basecamp::Comment.delete(c.id)}
-end 
+def create_time_entries_for_project_and_todo_item(project_id, todo_id)
+  Basecamp::TimeEntry.create(
+    :project_id  => project_id,
+    :person_id   => TEST_PERSON_ID,
+    :date        => Time.now,
+    :hours       => '1.00',
+    :description => 'test time entry'
+  )
+
+  entry = Basecamp::TimeEntry.create(
+    :todo_item_id  => todo_id,
+    :person_id     => TEST_PERSON_ID,
+    :date          => Time.now,
+    :hours         => '1.00',
+    :description   => 'test time entry'
+  )
+  entry.todo_item_id = todo_id
+  entry
+end
+
+def delete_time_entries_for_project(project_id)
+  Basecamp::TimeEntry.all(project_id).each{ |entry| entry.destroy }
+end
 
 def create_todo_list_for_project_with_todo(id)
   todo_list = Basecamp::TodoList.create(
@@ -53,15 +71,9 @@ def create_todo_list_for_project_with_todo(id)
   comment = Basecamp::Comment.new(:todo_item_id => todo.id)
   comment.body = "test comment"
   comment.save
-  
+
   todo.todo_list_id = todo_list.id
   todo
-end
-
-def create_pending_and_finished_lists(id)
-  list1 = Basecamp::TodoList.create(:project_id => id, :tracked => true, :description => 'private1', :private => false)
-  list2 = Basecamp::TodoList.create(:project_id => id, :tracked => true, :description => 'private2', :private => false)
-  [ list1.id, list2.id ]
 end
 
 def create_milestone_for_project(id)

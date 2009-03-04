@@ -19,10 +19,9 @@ describe Basecamp::TodoItem do
     @todo.comments.should be_kind_of(Array)
   end
   
-#  it "should return array of time entries" do
-#    todo.time_entries.should_not be_blank
-#    todo.time_entries.should be_kind_of(Array)
-#  end
+  it "should return array of time entries" do
+    @todo.time_entries.should be_kind_of(Array)
+  end
   
   it "should complete todo item" do
     @todo.complete!
