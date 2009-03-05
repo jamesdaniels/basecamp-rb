@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{basecamp-rb}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["The Turing Studio, Inc."]
-  s.date = %q{2009-03-04}
+  s.date = %q{2009-03-05}
   s.description = %q{A Ruby gem for working with the Basecamp web-services API.}
   s.email = ["support@turingstudio.com"]
   s.files = ["History.txt", "README.rdoc", "Rakefile", "lib/basecamp.rb", "lib/basecamp/attachment.rb", "lib/basecamp/attachment_category.rb", "lib/basecamp/base.rb", "lib/basecamp/comment.rb", "lib/basecamp/company.rb", "lib/basecamp/connection.rb", "lib/basecamp/message.rb", "lib/basecamp/milestone.rb", "lib/basecamp/person.rb", "lib/basecamp/post_category.rb", "lib/basecamp/project.rb", "lib/basecamp/record.rb", "lib/basecamp/resource.rb", "lib/basecamp/time_entry.rb", "lib/basecamp/todoitem.rb", "lib/basecamp/todolist.rb", "lib/basecamp/version.rb", "spec/spec.opts", "spec/spec_helper.rb", "spec/lib/basecamp/attachment_category_spec.rb", "spec/lib/basecamp/attachment_spec.rb", "spec/lib/basecamp/base_spec.rb", "spec/lib/basecamp/company_spec.rb", "spec/lib/basecamp/message_spec.rb", "spec/lib/basecamp/milestone_spec.rb", "spec/lib/basecamp/person_spec.rb", "spec/lib/basecamp/post_category_spec.rb", "spec/lib/basecamp/project_spec.rb", "spec/lib/basecamp/record_spec.rb", "spec/lib/basecamp/time_entry_spec.rb", "spec/lib/basecamp/todo_item_spec.rb", "spec/lib/basecamp/todo_list_spec.rb", "tasks/rspec.rake"]

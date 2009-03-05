@@ -8,15 +8,15 @@ end
 
 require File.dirname(__FILE__) + '/../lib/basecamp'
 
-SITE_URL = ''
-LOGIN = ''
-PASSWORD = ''
-USE_SSL = true  
+SITE_URL = 'bletchley.basecamphq.com'
+LOGIN    = 'test'
+PASSWORD = 'test'
+USE_SSL  =  true
 
-TEST_PROJECT_ID   = 
-TEST_MESSAGE_ID   =    # TEST_MESSAGE SHOULD BELONG TO TEST PROJECT!!!
-TEST_COMPANY_ID   = 
-TEST_PERSON_ID    = 
+TEST_PROJECT_ID   = 2975113
+TEST_MESSAGE_ID   = 20289953  # TEST_MESSAGE SHOULD BELONG TO TEST PROJECT!!!
+TEST_COMPANY_ID   = 0000000
+TEST_PERSON_ID    = 3509479
 
 def establish_connection
   Basecamp::Base.establish_connection!(SITE_URL, LOGIN, PASSWORD, USE_SSL)

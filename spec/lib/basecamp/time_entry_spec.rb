@@ -4,9 +4,15 @@ describe Basecamp::TimeEntry do
   before(:all) do
     establish_connection
     @todo = create_todo_list_for_project_with_todo(TEST_PROJECT_ID)
+    @list = @todo.todo_list
     @entry = create_time_entries_for_project_and_todo_item(TEST_PROJECT_ID, @todo.id)
   end
-  
+
+  after(:all) do
+    Basecamp::TodoList.delete(@list.id)
+    delete_time_entries_for_project(TEST_PROJECT_ID)
+  end
+
   it "should return all time entries" do
     entries = Basecamp::TimeEntry.report
     entries.should_not be_blank
